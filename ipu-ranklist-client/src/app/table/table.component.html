@@ -10,7 +10,13 @@
             </tr>
         </thead>
         <tbody id="idhar">
-            
+            <tr *ngFor="let item of list">
+                <td>{{ item.enroll_no }}</td>
+                <td>{{ item.name }}</td>
+                <td>{{ item.semesters[sem-1].total_marks }}/{{ item.semesters[sem-1].max_marks }}</td>
+                <td>{{ item.semesters[sem-1].percentage.toFixed(2) }}%</td>
+                <td>{{ item.enroll_no }}</td>
+            </tr>
         </tbody>
     </table>
 </div>

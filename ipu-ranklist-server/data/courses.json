@@ -1,0 +1,74 @@
+[
+    {
+        "branch": "CSE",
+        "name": "Computer Science and Engineering",
+        "code": "027",
+        "codeLE": "072"
+    },
+    {
+        "branch": "CIV",
+        "name": "Civil Engineering",
+        "code": "034",
+        "codeLE": "079"
+    },
+    {
+        "branch": "ECE",
+        "name": "Electronics and Communications Engineering",
+        "code": "028",
+        "codeLE": "073"
+    },
+    {
+        "branch": "EE",
+        "name": "Electrical Engineering",
+        "code": "110",
+        "codeLE": "083"
+    },
+    {
+        "branch": "EEE",
+        "name": "Electrical and Electronics Engineering",
+        "code": "049",
+        "codeLE": "078"
+    },
+    {
+        "branch": "ICE",
+        "name": "Instrumentation and Control Engineering",
+        "code": "030",
+        "codeLE": "076"
+    },
+    {
+        "branch": "IT",
+        "name": "Information Technology",
+        "code": "031",
+        "codeLE": "077"
+    },
+    {
+        "branch": "MAE",
+        "name": "Mechanical and Automation Engineering",
+        "code": "036",
+        "codeLE": "074"
+    },
+    {
+        "branch": "ME",
+        "name": "Mechanical Engineering",
+        "code": "111",
+        "codeLE": "082"
+    },
+    {
+        "branch": "MET",
+        "name": "Mechatronics",
+        "code": "112",
+        "codeLE": "084"
+    },
+    {
+        "branch": "PE",
+        "name": "Power Engineering",
+        "code": "037",
+        "codeLE": "075"
+    },
+    {
+        "branch": "TE",
+        "name": "Tools Engineering",
+        "code": "086",
+        "codeLE": "081"
+    }
+]

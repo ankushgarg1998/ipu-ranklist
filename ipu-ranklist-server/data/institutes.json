@@ -1,0 +1,20 @@
+[
+    {
+        "name": "BHARATI VIDYAPEETH COLLEGE OF ENGINEERING",
+        "abbrev": "BVCoE",
+        "code": "115",
+        "codeEve": "512"
+    },
+    {
+        "name": "MAHARAJA AGRASEN INSTITUTE OF TECHNOLOGY",
+        "abbrev": "MAIT",
+        "code": "148",
+        "codeEve": "964"
+    },
+    {
+        "name": "MAHARAJA SURAJMAL INSTITUTE OF TECHNOLOGY",
+        "abbrev": "MSIT",
+        "code": "150",
+        "codeEve": "963"
+    }
+]

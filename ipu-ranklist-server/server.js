@@ -10,6 +10,7 @@ const courses = require('./data/courses.json');
 const institutes = require('./data/institutes.json')
 
 var { Student } = require('./models/student');
+var helper = require('./helpers/helper');
 
 var app = express();
 app.use(cors());
@@ -18,28 +19,32 @@ const port = process.env.PORT;
 
 app.use(bodyParser.json());
 
-app.get('/api/list/:institute/:shift/:batch/:course/:sem', (req, res) => {
-    console.log(req.params);
-    let institute = institutes.find(insti => {
-        return insti.abbrev.toUpperCase() === req.params.institute.toUpperCase();
-    });
-    // console.log(institute);
-    let instiCode = (req.params.shift.toUpperCase() === 'M'? institute.code: institute.codeEve);
-    let batch = parseInt(req.params.batch);
-    let course = courses.find(c => {
-        return c.branch.toUpperCase() === req.params.course.toUpperCase();
-    })
-    // console.log(course);
-    let courseCode = course.code, courseCodeLE = course.codeLE;
-    let sem = parseInt(req.params.sem);
+// branch and batch and compulsory query params;
+app.get('/api/list', (req, res) => {
+    try {
+        console.log(req.query);
+        let insti = req.query.insti || '0';
+        let shift = req.query.shift || '0';
+        let batch = req.query.batch || '16';
+        let branch = req.query.branch || 'CSE';
+        let sem = parseInt(req.query.sem) || 1;
 
-    Student.find({
-        insti_code: instiCode,
-        admission_year: batch,
-        course_code: courseCode
-    }).then(students => {
-        res.send(students);
-    })
+        let options = helper.makeListOptions(insti, shift, batch, branch);
+        console.log('List Hit. Options:');
+        console.log(options);
+
+        Student.find(options).then(students => {
+            students.map(stu => {
+                stu.semesters = stu.semesters[sem-1];
+            });
+            res.send(students);
+        }).catch((err) => {
+            res.send(`[Caught]There was an error in fetching data from the database. ${err}`);
+        });
+    } catch (err) {
+        console.log('SERVER ERROR', err);
+        res.status(500).send(err);
+    }
 })
 
 app.listen(port, () => {

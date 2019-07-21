@@ -26,7 +26,7 @@ export class HeaderComponent implements OnInit {
         this.courses = allCourses['default'];
         this.instis = allInstis['default'];
         this.ngForm.form.valueChanges.subscribe(x => {
-            console.log(x);
+            // console.log(x);
             this.selectionsChanged.emit(x);
         })
     }

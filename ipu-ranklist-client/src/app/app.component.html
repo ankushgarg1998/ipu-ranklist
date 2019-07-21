@@ -1,7 +1,15 @@
 <div class="container">
-    <app-header (selectionsChanged)="newSelection = $event"></app-header>
+    <div class="row">
+        <div class="col-12">
+            <app-header (selectionsChanged)="newSelection = $event"></app-header>
+        </div>
+    </div>
     <hr>
-    <app-table [selections]="newSelection"></app-table>
+    <div class="row">
+        <div class="col-12" style="overflow-x: scroll">
+            <app-table [selections]="newSelection"></app-table>
+        </div>
+    </div>
     <hr>
     <app-footer></app-footer>
 </div>

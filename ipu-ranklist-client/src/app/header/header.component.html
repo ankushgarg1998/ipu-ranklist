@@ -2,10 +2,8 @@
 <hr>
 <form class="flexbox" class="header-form" #f="ngForm">
     <div class="form-group">
-        <select name="college" id="college" class="form-control" [(ngModel)]="defaultSelection.college" required>
-            <option value="MSIT">MSIT</option>
-            <option value="MAIT">MAIT</option>
-            <option value="BVOE">BVCOE</option>
+        <select name="college" id="college" class="form-control" [(ngModel)]="defaultSelection.college" required>    
+            <option *ngFor="let insti of instis" [title]="insti.name" [value]="insti.abbrev">{{ insti.abbrev }}</option>
         </select>
     </div>
     <div class="form-group">
@@ -26,10 +24,7 @@
     </div>
     <div class="form-group">
         <select name="branch" id="branch" class="form-control" [(ngModel)]="defaultSelection.branch" required>
-            <option value="CSE">CSE</option>
-            <option value="IT">IT</option>
-            <option value="ECE">ECE</option>
-            <option value="EEE">EEE</option>
+            <option *ngFor="let course of courses" [value]="course.branch">{{ course.branch }}</option>
         </select>
     </div>
     <div class="form-group">

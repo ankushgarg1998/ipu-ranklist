@@ -1,7 +1,7 @@
 <div class="container">
-    <app-header></app-header>
+    <app-header (selectionsChanged)="newSelection = $event"></app-header>
     <hr>
-    <app-table></app-table>
+    <app-table [selections]="newSelection"></app-table>
     <hr>
     <app-footer></app-footer>
 </div>

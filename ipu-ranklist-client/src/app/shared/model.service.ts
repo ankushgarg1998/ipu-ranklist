@@ -7,7 +7,15 @@ export class ModelService {
 
     constructor(private http: HttpClient) {}
 
-    getList(insti, shift, batch, course, sem) {
-        return this.http.get(`${this.baseUrl}/list/${insti}/${shift}/${batch}/${course}/${sem}`);
+    getList(college, shift, batch, branch, sem) {
+        return this.http.get(`${this.baseUrl}/list/`, {
+            params: {
+                insti: college,
+                shift: shift,
+                batch: batch,
+                branch: branch,
+                sem: sem
+            }
+        });
     }
 }

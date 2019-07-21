@@ -10,12 +10,12 @@
             </tr>
         </thead>
         <tbody id="idhar">
-            <tr *ngFor="let item of list">
+            <tr *ngFor="let item of list; let i = index">
                 <td>{{ item.enroll_no }}</td>
                 <td>{{ item.name }}</td>
-                <td>{{ item.semesters[sem-1].total_marks }}/{{ item.semesters[sem-1].max_marks }}</td>
-                <td>{{ item.semesters[sem-1].percentage.toFixed(2) }}%</td>
-                <td>{{ item.enroll_no }}</td>
+                <td>{{ item.semesters[0].total_marks }}/{{ item.semesters[0].max_marks }}</td>
+                <td>{{ item.semesters[0].percentage.toFixed(2) }}%</td>
+                <td>{{ i+1 }}</td>
             </tr>
         </tbody>
     </table>

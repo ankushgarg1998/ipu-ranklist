@@ -1,35 +1,39 @@
-<h1>IPU Ranklist v3.0</h1>
+<h1>IPU Ranklist v1.0 <span class="badge badge-sm badge-dark" style="font-size: 0.4em;"> ALPHA</span></h1>
 <hr>
-<form class="flexbox" style="display: flex; justify-content: space-around;">
+<form class="flexbox" class="header-form" #f="ngForm">
     <div class="form-group">
-        <select name="college" id="college" class="form-control">
-            <option value="msitM">MSIT - Morning</option>
-            <option value="msitE">MSIT - Evening</option>
-            <option value="maitM">MAIT - Morning</option>
-            <option value="maitE">MAIT - Evening</option>
-            <option value="bvpM">BVP - Morning</option>
-            <option value="bvpE">BVP - Evening</option>
+        <select name="college" id="college" class="form-control" [(ngModel)]="defaultSelection.college" required>
+            <option value="MSIT">MSIT</option>
+            <option value="MAIT">MAIT</option>
+            <option value="BVOE">BVCOE</option>
         </select>
     </div>
     <div class="form-group">
-        <select name="batch" id="batch" class="form-control">
-            <option value="15">2015 - 2019</option>
-            <option value="16">2015 - 2020</option>
-            <option value="17">2015 - 2021</option>
-            <option value="18">2015 - 2022</option>
-            <option value="19" disabled>2019 - 2023</option>
+        <select name="shift" id="shift" class="form-control" [(ngModel)]="defaultSelection.shift" required>
+            <option value="M">Morning</option>
+            <option value="E">Evening</option>
+            <option value="0">Both</option>
         </select>
     </div>
     <div class="form-group">
-        <select name="course" id="course" class="form-control">
-            <option value="cse">CSE</option>
-            <option value="it">IT</option>
-            <option value="ece">ECE</option>
-            <option value="eee">EEE</option>
+        <select name="batch" id="batch" class="form-control" [(ngModel)]="defaultSelection.batch" required>
+            <option value=15>2015 - 2019</option>
+            <option value=16>2016 - 2020</option>
+            <option value=17>2017 - 2021</option>
+            <option value=18>2018 - 2022</option>
+            <option value=19 disabled>2019 - 2023</option>
         </select>
     </div>
     <div class="form-group">
-        <select name="sem" id="sem" class="form-control">
+        <select name="branch" id="branch" class="form-control" [(ngModel)]="defaultSelection.branch" required>
+            <option value="CSE">CSE</option>
+            <option value="IT">IT</option>
+            <option value="ECE">ECE</option>
+            <option value="EEE">EEE</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <select name="sem" id="sem" class="form-control" [(ngModel)]="defaultSelection.sem" required>
             <option value="1">Sem 1</option>
             <option value="2">Sem 2</option>
             <option value="3">Sem 3</option>

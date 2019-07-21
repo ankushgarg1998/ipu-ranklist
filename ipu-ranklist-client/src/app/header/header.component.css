@@ -1,3 +1,8 @@
 .flexbox > div {
     width: 20%;
 }
+
+.header-form {
+    display: flex;
+    justify-content: space-around;
+}

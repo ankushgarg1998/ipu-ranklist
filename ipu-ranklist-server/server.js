@@ -37,6 +37,7 @@ app.get('/api/list', (req, res) => {
             students.map(stu => {
                 stu.semesters = stu.semesters[sem-1];
             });
+            console.log(`Data of ${students.length} students sent.`);
             res.send(students);
         }).catch((err) => {
             res.send(`[Caught]There was an error in fetching data from the database. ${err}`);

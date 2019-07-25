@@ -3,7 +3,8 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class ModelService {
-    baseUrl = 'http://localhost:3000/api'
+    // baseUrl = 'http://ec2-13-234-29-17.ap-south-1.compute.amazonaws.com/api';
+    baseUrl = 'http://localhost:3000/api';
 
     constructor(private http: HttpClient) {}
 

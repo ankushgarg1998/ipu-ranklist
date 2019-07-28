@@ -5,9 +5,3 @@
 .container {
     padding-top: 20px;
 }
-
-@media(max-width: 481px) {
-    * {
-        font-size: 1rem;
-    }
-}

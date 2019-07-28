@@ -1,22 +1,26 @@
 p {
     line-height: 50%;
 }
-tbody > tr {
+
+.table-responsive {
+    overflow: visible;
+}
+.tbody {
+    overflow: visible;
+}
+.tbody > tr {
     transition: all 0.2s linear;
     -o-transition: all .2s linear;
     -moz-transition: all .2s linear;
     -webkit-transition: all .2s linear;
 }
-
-tbody tr:nth-of-type(even) {
+.tbody tr:nth-of-type(even) {
     background-color: white;
 }
-tbody tr:nth-of-type(odd) {
+.tbody tr:nth-of-type(odd) {
     background-color: rgb(240, 240, 240);
 }
-
-
-tbody > tr:hover {
+.tbody > tr:hover {
     transform: scale(1.05);
     transition-duration: .2s;
     cursor: pointer;
@@ -24,10 +28,6 @@ tbody > tr:hover {
     font-weight: bold;
 }
 
-tbody {
-    overflow: visible;
-}
-
-.table-responsive {
-    overflow: visible;
+.modal-data tr td {
+    padding-right: 10px;
 }

@@ -10,7 +10,7 @@
             </tr>
         </thead>
         <tbody id="idhar">
-            <tr *ngFor="let item of list; let i = index">
+            <tr *ngFor="let item of list; let i = index" (click)="rowClicked(i)">
                 <td>{{ item.enroll_no }}</td>
                 <td>{{ item.name }}</td>
                 <td>{{ item.semesters[0].total_marks }}/{{ item.semesters[0].max_marks }}</td>

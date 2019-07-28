@@ -1,5 +1,6 @@
 .form-group {
-    width: 15%;
+    min-width: auto;
+    /* width: 15%; */
     margin-right: 2%;
     margin-bottom: 0;
 }

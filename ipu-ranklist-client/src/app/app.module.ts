@@ -8,13 +8,16 @@ import { FooterComponent } from './footer/footer.component';
 import { ModelService } from './shared/model.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { ModalComponent } from './modal/modal.component';
+import { ListService } from './shared/list.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     TableComponent,
-    FooterComponent
+    FooterComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +25,8 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule
   ],
   providers: [
-    ModelService
+    ModelService,
+    ListService
   ],
   bootstrap: [AppComponent]
 })

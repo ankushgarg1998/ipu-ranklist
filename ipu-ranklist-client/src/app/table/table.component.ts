@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { ModelService } from '../shared/model.service';
 import { HttpResponse } from '@angular/common/http';
+import { ListService } from '../shared/list.service';
 
 @Component({
     selector: 'app-table',
@@ -11,7 +12,7 @@ export class TableComponent implements OnInit, OnChanges {
     list= [];
     @Input() selections = {};
     
-    constructor(private modelService: ModelService) { }
+    constructor(private modelService: ModelService, private listService: ListService) { }
 
     ngOnInit() {
     }
@@ -31,5 +32,10 @@ export class TableComponent implements OnInit, OnChanges {
                     });
             }
         }
+    }
+
+    rowClicked(index) {
+        this.list[index]['rank'] = index;
+        this.listService.rowSelected(this.list[index]);
     }
 }

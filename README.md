@@ -1,4 +1,4 @@
-# ipu-ranklist3.0
+# ipu-ranklist v1.0
 
 ![Website ipuraklist.surge.sh](https://img.shields.io/website-up-down-green-red/https/ipuranklist.surge.sh.svg)
 ![start with why](https://img.shields.io/badge/start%20with-why%3F-brightgreen.svg?style=flat)

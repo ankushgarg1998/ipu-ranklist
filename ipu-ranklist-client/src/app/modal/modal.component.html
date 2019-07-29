@@ -10,24 +10,24 @@
                 <h4 class="modal-title">Student Marksheet</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
-            <div class="modal-body" *ngIf="banda['semesters']">
+            <div class="modal-body" *ngIf="banda.semester">
                 <p><b>Enrollment Number: </b>&nbsp; {{banda.enroll_no}}</p>
                 <p><b>Name: </b>&nbsp; {{banda.name}}</p>
                 <table class="modal-data">
                     <tr>
                         <td>
-                            <p><b>Marks: </b>&nbsp; {{banda['semesters'][0].total_marks}}/{{banda['semesters'][0].max_marks}}</p>
+                            <p><b>Marks: </b>&nbsp; {{banda['semester'].total_marks}}/{{banda['semester'].max_marks}}</p>
                         </td>
                         <td>
-                            <p><b>Percentage: </b>&nbsp; {{banda['semesters'][0].percentage.toFixed(3)}}%</p>
+                            <p><b>Percentage: </b>&nbsp; {{banda['semester'].percentage.toFixed(3)}}%</p>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <p><b>Total Credit Marks: </b>&nbsp; {{banda['semesters'][0].total_credit_marks}}/{{banda['semesters'][0].max_credit_marks}}</p>
+                            <p><b>Total Credit Marks: </b>&nbsp; {{banda['semester'].total_credit_marks}}/{{banda['semester'].max_credit_marks}}</p>
                         </td>
                         <td>
-                            <p><b>Credit Percentage: </b>&nbsp; {{banda['semesters'][0].credit_percentage.toFixed(3)}}%</p>
+                            <p><b>Credit Percentage: </b>&nbsp; {{banda['semester'].credit_percentage.toFixed(3)}}%</p>
                         </td>
                     </tr>
                 </table>
@@ -45,7 +45,7 @@
                         <th>Marks</th>
                     </thead>
                     <tbody class="tbody">
-                        <tr *ngFor="let subject of banda['semesters'][0].subjects" >
+                        <tr *ngFor="let subject of banda['semester']['subjects']" >
                             <td>{{subject.name}}</td>
                             <td *ngIf="showMinorMajor">{{subject.minor}} | {{subject.major}}</td>
                             <td>{{subject.marks}} ({{subject.grade}})</td>

@@ -20,8 +20,9 @@ export class ModalComponent implements OnInit {
         this.listService.rowSelectedEvent
         .subscribe(banda => {
             this.modalButton.nativeElement.click();
-            banda.semesters[0].subjects.map(subj => {
+            banda.semester.subjects = banda.semester.subjects.map(subj => {
                 subj.name = this.allTheSubjects['default'][subj.paper_id] || subj.paper_id;
+                return subj;
             });
             console.log(banda);
             this.banda = banda;

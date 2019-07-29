@@ -1,7 +1,6 @@
 p {
-    line-height: 50%;
+    margin-bottom: 0;
 }
-
 .table-responsive {
     overflow: visible;
 }

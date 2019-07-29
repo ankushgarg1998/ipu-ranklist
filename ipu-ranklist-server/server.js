@@ -34,11 +34,14 @@ app.get('/api/list', (req, res) => {
         console.log(options);
 
         Student.find(options).then(students => {
-            students.map(stu => {
-                stu.semesters = stu.semesters[sem-1];
+            let newStudents = students.map(stu => {
+                stu = stu.toObject();
+                stu.semester = stu.semesters[sem-1];
+                stu.semesters = null;
+                return stu;
             });
             console.log(`Data of ${students.length} students sent.`);
-            res.send(students);
+            res.send(newStudents);
         }).catch((err) => {
             res.send(`[Caught]There was an error in fetching data from the database. ${err}`);
         });

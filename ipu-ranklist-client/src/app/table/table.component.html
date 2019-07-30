@@ -15,6 +15,9 @@
             </tr>
         </thead>
         <tbody id="idhar">
+            <tr *ngIf="list.length === 0">
+                <td colspan="5" align="center"><h5>Sorry. No relevant data found! 😧</h5></td>
+            </tr>
             <tr *ngFor="let item of list; let i = index" (click)="rowClicked(i)">
                 <td>{{ item.enroll_no }}</td>
                 <td>{{ item.name }}</td>
@@ -24,7 +27,7 @@
             </tr>
         </tbody>
     </table>
-
+    
     <ngx-spinner bdOpacity = 0 bdColor = "#ffffff" size = "medium" color = "#000000" type = "ball-atom" [fullScreen] = "false">
         <p style="color: black; margin-top: 10rem;" > Fetching Data... </p>
     </ngx-spinner>

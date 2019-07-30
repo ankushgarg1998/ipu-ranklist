@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { NgxSpinnerModule } from "ngx-spinner";
+
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { TableComponent } from './table/table.component';
@@ -22,11 +24,12 @@ import { ListService } from './shared/list.service';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxSpinnerModule
   ],
   providers: [
-    ModelService,
-    ListService
+    ListService,
+    ModelService
   ],
   bootstrap: [AppComponent]
 })

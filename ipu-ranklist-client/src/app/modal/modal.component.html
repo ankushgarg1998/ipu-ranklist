@@ -10,7 +10,7 @@
                 <h4 class="modal-title">Student Marksheet</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
-            <div class="modal-body" *ngIf="banda.semester">
+            <div class="modal-body" *ngIf="banda['semester']">
                 <p><b>Enrollment Number: </b>&nbsp; {{banda.enroll_no}}</p>
                 <p><b>Name: </b>&nbsp; {{banda.name}}</p>
                 <table class="modal-data">

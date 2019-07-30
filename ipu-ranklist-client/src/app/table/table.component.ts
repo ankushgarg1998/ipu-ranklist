@@ -2,6 +2,7 @@ import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/cor
 import { ModelService } from '../shared/model.service';
 import { HttpResponse } from '@angular/common/http';
 import { ListService } from '../shared/list.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
     selector: 'app-table',
@@ -13,7 +14,7 @@ export class TableComponent implements OnInit, OnChanges {
     list = [];
     @Input() selections = {};
     
-    constructor(private modelService: ModelService, private listService: ListService) { }
+    constructor(private modelService: ModelService, private listService: ListService, private spinner: NgxSpinnerService) { }
 
     ngOnInit() {
     }
@@ -22,6 +23,8 @@ export class TableComponent implements OnInit, OnChanges {
         if(changes['selections']) {
             let keys = Object.keys(this.selections);
             if(keys.includes('college') && keys.includes('shift') && keys.includes('batch') && keys.includes('branch') && keys.includes('sem')) {
+                this.list = [];
+                this.spinner.show();
                 this.modelService.getList(this.selections['college'], this.selections['shift'], this.selections['batch'], this.selections['branch'], this.selections['sem'])
                     .subscribe((res: any[]) => {
                         // console.log(res);
@@ -45,6 +48,7 @@ export class TableComponent implements OnInit, OnChanges {
                             }
                         }
                         this.list = this.fullList.slice();
+                        this.spinner.hide();
                     });
             }
         }

@@ -1,15 +1,5 @@
 <div class="container">
-    <app-modal></app-modal>    
-    <div class="row">
-        <div class="col-12">
-            <app-header (selectionsChanged)="newSelection = $event"></app-header>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-12">
-            <app-table [selections]="newSelection"></app-table>
-        </div>
-    </div>
-    <hr>
+    <app-header></app-header>
+    <app-ranklist></app-ranklist>
     <app-footer></app-footer>
 </div>

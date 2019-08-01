@@ -1,0 +1,26 @@
+.form-group {
+    min-width: auto;
+    /* width: 15%; */
+    margin-right: 2%;
+    margin-bottom: 0;
+}
+
+.header-form {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+@media(max-width: 481px) {
+    .form-group {
+        width: 30%;
+        margin-right: 3%;
+        margin-top: 3%;
+    }
+    .header-form {
+        justify-content: space-around;
+    }
+    .form-control {
+        font-size: 0.9rem;
+    }
+}

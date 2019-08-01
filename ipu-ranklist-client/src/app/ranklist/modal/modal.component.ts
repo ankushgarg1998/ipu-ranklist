@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { ListService } from '../shared/list.service';
+import { ListService } from '../list.service';
 
-import * as allSubjects from '../shared/subjects.json';
+import * as allSubjects from '../../shared/subjects.json';
 
 @Component({
     selector: 'app-modal',
@@ -21,10 +21,10 @@ export class ModalComponent implements OnInit {
         .subscribe(banda => {
             this.modalButton.nativeElement.click();
             banda.semester.subjects = banda.semester.subjects.map(subj => {
-                subj.name = this.allTheSubjects['default'][subj.paper_id] || subj.paper_id;
+                subj.name = this.allTheSubjects['default'][subj.paper_id] || `paper_id(${subj.paper_id})`;
                 return subj;
             });
-            console.log(banda);
+            // console.log(banda);
             this.banda = banda;
         });
     }

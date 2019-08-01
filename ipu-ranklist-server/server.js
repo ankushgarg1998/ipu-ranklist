@@ -49,7 +49,29 @@ app.get('/api/list', (req, res) => {
         console.log('SERVER ERROR', err);
         res.status(500).send(err);
     }
-})
+});
+
+app.get('/api/student', (req, res) => {
+    try {
+        console.log(req.query);
+        if(!req.query.enroll) {
+            throw Error('No Enrollment No was sent in API Request');
+        }
+        let enroll = req.query.enroll;
+
+        Student.find({
+            enroll_no: enroll
+        }).then(student => {
+            // console.log(student);
+            res.send(student);
+        }).catch((err) => {
+            res.send(`[Caught]There was an error in fetching data from the database. ${err}`);
+        });
+    } catch (err) {
+        console.log('SERVER ERROR', err);
+        res.status(500).send(err);
+    }
+});
 
 app.listen(port, () => {
     console.log('Server started on port ' + port);

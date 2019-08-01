@@ -11,7 +11,7 @@
 }
 
 
-@media(max-width: 481px) {
+@media(max-width: 786px) {
     .form-group {
         width: 30%;
         margin-right: 3%;

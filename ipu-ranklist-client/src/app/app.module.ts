@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { Routes } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 
 import { NgxSpinnerModule } from "ngx-spinner";
 
@@ -15,10 +15,15 @@ import { ModalComponent } from './ranklist/modal/modal.component';
 import { ListService } from './ranklist/list.service';
 import { RanklistComponent } from './ranklist/ranklist.component';
 import { ListformComponent } from './ranklist/listform/listform.component';
+import { ProfileComponent } from './student/profile/profile.component';
+import { StudentComponent } from './student/student.component';
 
-// const appRoutes: Routes = [
-//     { path: 'ranklist', component: }
-// ];
+const appRoutes: Routes = [
+    { path: '', component: RanklistComponent },
+    { path: 'ranklist', component: RanklistComponent },
+    { path: 'student', component: StudentComponent },
+    { path: 'student/:enroll', component: ProfileComponent }
+];
 @NgModule({
     declarations: [
         AppComponent,
@@ -27,13 +32,16 @@ import { ListformComponent } from './ranklist/listform/listform.component';
         FooterComponent,
         ModalComponent,
         RanklistComponent,
-        ListformComponent
+        ListformComponent,
+        ProfileComponent,
+        StudentComponent
     ],
     imports: [
         BrowserModule,
         FormsModule,
         HttpClientModule,
-        NgxSpinnerModule
+        NgxSpinnerModule,
+        RouterModule.forRoot(appRoutes)
     ],
     providers: [
         ListService,

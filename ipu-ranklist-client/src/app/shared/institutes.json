@@ -42,6 +42,12 @@
         "codeEve": ""
     },
     {
+        "name": "DELHI INSTITUTE OF TOOL ENGINEERING",
+        "abbrev": "DITE",
+        "code": "702",
+        "codeEve": ""
+    },
+    {
         "name": "DELHI TECHNICAL CAMPUS",
         "abbrev": "DTC",
         "code": "180",
@@ -87,6 +93,12 @@
         "name": "MAHAVIR SWAMI INSTITUTE OF TECHNOLOGY",
         "abbrev": "MSWAMI",
         "code": "551",
+        "codeEve": ""
+    },
+    {
+        "name": "NATIONAL POWER TRAINING INSTITUTE",
+        "abbrev": "NPTI",
+        "code": "153",
         "codeEve": ""
     },
     {

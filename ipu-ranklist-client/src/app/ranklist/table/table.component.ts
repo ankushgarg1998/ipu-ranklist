@@ -3,6 +3,7 @@ import { ModelService } from '../../shared/model.service';
 import { HttpResponse } from '@angular/common/http';
 import { ListService } from '../list.service';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { element } from '@angular/core/src/render3';
 
 @Component({
     selector: 'app-table',
@@ -30,7 +31,11 @@ export class TableComponent implements OnInit, OnChanges {
                 this.modelService.getList(this.selections['college'], this.selections['shift'], this.selections['batch'], this.selections['branch'], this.selections['sem'])
                     .subscribe((res: any[]) => {
                         // console.log(res);
-                        this.setListWithRanking(res);
+                        if(this.selections['sem'] === '0') {
+                            this.setListWithRanking(res, true);
+                        } else {
+                            this.setListWithRanking(res, false);
+                        }
                         this.spinner.hide();
                         this.isDataPresent = true;
                     });
@@ -38,7 +43,26 @@ export class TableComponent implements OnInit, OnChanges {
         }
     }
 
-    setListWithRanking(res) {
+    setListWithRanking(res, overall) {
+        if(overall) {
+            res.forEach(element => {
+                element.semester = {
+                    total_marks: 0,
+                    max_marks: 0,
+                    total_credit_marks: 0,
+                    max_credit_marks: 0
+                };
+                element.semesters.forEach(sem => {
+                    element.semester.total_marks += sem.total_marks;
+                    element.semester.max_marks += sem.max_marks;
+                    element.semester.total_credit_marks += sem.total_credit_marks;
+                    element.semester.max_credit_marks += sem.max_credit_marks;
+                });
+                element.semester.percentage = (element.semester.total_marks*100)/element.semester.max_marks;
+                element.semester.credit_percentage = (element.semester.total_credit_marks*100)/element.semester.max_credit_marks;
+            });
+        }
+        
         this.fullList = res.sort((a, b) => {
             let aMarks = a.semester.total_marks;
             let bMarks = b.semester.total_marks;
@@ -66,7 +90,6 @@ export class TableComponent implements OnInit, OnChanges {
     }
 
     rowClicked(index) {
-        // this.list[index]['rank'] = index;
         this.listService.rowSelected(this.list[index]);
     }
 

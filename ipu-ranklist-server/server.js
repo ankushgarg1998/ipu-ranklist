@@ -44,11 +44,11 @@ let cacheMiddleware = (duration) => {
 app.get('/api/list', cacheMiddleware(500), (req, res) => {
     try {
         console.log(`List Hit @ ${JSON.stringify(req.query)}`);
-        let insti = req.query.insti || '0';
-        let shift = req.query.shift || '0';
+        let insti = req.query.insti || 'MSIT';
+        let shift = req.query.shift || 'M';
         let batch = req.query.batch || '16';
         let branch = req.query.branch || 'CSE';
-        let sem = parseInt(req.query.sem) || 1;
+        let sem = parseInt(req.query.sem || '1');
 
         let options = helper.makeListOptions(insti, shift, batch, branch);
         // console.log(options);
@@ -56,11 +56,17 @@ app.get('/api/list', cacheMiddleware(500), (req, res) => {
         Student.find(options).then(students => {
             let newStudents = students.map(stu => {
                 stu = stu.toObject();
-                stu.semester = stu.semesters[sem-1];
-                stu.semesters = null;
+                if(sem === 0) {
+                    stu.semesters.forEach(sem => {
+                        sem.subjects = [];
+                    })
+                } else {
+                    stu.semester = stu.semesters[sem-1];
+                    stu.semesters = null;
+                }
                 return stu;
             });
-            console.log(`Data of ${students.length} students sent.`);
+            console.log(`=> Data of ${students.length} students sent.`);
             res.send(newStudents);
         }).catch((err) => {
             res.send(`[Caught]There was an error in fetching data from the database. ${err}`);

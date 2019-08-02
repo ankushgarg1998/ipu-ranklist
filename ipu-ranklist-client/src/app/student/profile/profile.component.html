@@ -1,6 +1,6 @@
 <h5 *ngIf="!validStudent">Sorry. No data for this enrollment number was found! 😧</h5>
 <div *ngIf="validStudent">
-    <div class="jumbotron">
+    <div class="jumbotron" style="background-color: white">
         <h4 class="display-5">{{student.name}}</h4>
         <p>{{student.enroll_no}}</p>
         <hr class="my-4">
@@ -8,38 +8,27 @@
     </div>
     
     <ul class="nav nav-tabs">
-        <li class="nav-item">
-            <a class="nav-link active" href="#">Active</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        <li class="nav-item" [ngClass]="{active: selectedSem===sem}" *ngFor="let sem of sems" (click)="tabChange(sem)">
+            <a class="nav-link">Sem {{ sem }}</a>
         </li>
     </ul>
     <div class="row">
-        <div class="col-12">
-            <p><b>Enrollment Number: </b>&nbsp; {{student.enroll_no}}</p>
-            <p><b>Name: </b>&nbsp; {{student.name}}</p>
+        <div class="col-12 jumbotron">
             <table class="modal-data">
                 <tr>
                     <td>
-                        <p><b>Marks: </b>&nbsp; {{student['semesters'][selectedSem].total_marks}}/{{student['semesters'][selectedSem].max_marks}}</p>
+                        <p><b>Marks: </b>&nbsp; {{student['semesters'][selectedSem-1].total_marks}}/{{student['semesters'][selectedSem-1].max_marks}}</p>
                     </td>
                     <td>
-                        <p><b>Percentage: </b>&nbsp; {{student['semesters'][selectedSem].percentage.toFixed(3)}}%</p>
+                        <p><b>Percentage: </b>&nbsp; {{student['semesters'][selectedSem-1].percentage.toFixed(3)}}%</p>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <p><b>Total Credit Marks: </b>&nbsp; {{student['semesters'][selectedSem].total_credit_marks}}/{{student['semesters'][selectedSem].max_credit_marks}}</p>
+                        <p><b>Total Credit Marks: </b>&nbsp; {{student['semesters'][selectedSem-1].total_credit_marks}}/{{student['semesters'][selectedSem-1].max_credit_marks}}</p>
                     </td>
                     <td>
-                        <p><b>Credit Percentage: </b>&nbsp; {{student['semesters'][selectedSem].credit_percentage.toFixed(3)}}%</p>
+                        <p><b>Credit Percentage: </b>&nbsp; {{student['semesters'][selectedSem-1].credit_percentage.toFixed(3)}}%</p>
                     </td>
                 </tr>
             </table>
@@ -57,7 +46,7 @@
                     <th>Marks</th>
                 </thead>
                 <tbody class="tbody">
-                    <tr *ngFor="let subject of student['semesters'][selectedSem]['subjects']" >
+                    <tr *ngFor="let subject of student['semesters'][selectedSem-1]['subjects']" >
                         <td>{{subject.name}}</td>
                         <td *ngIf="showMinorMajor">{{subject.minor}} | {{subject.major}}</td>
                         <td>{{subject.marks}} ({{subject.grade}})</td>

@@ -1,11 +1,11 @@
 <app-modal></app-modal>    
 <div class="row">
     <div class="col-12">
-        <app-listform [selections]="selection" (selectionsChanged)="selection = $event"></app-listform>
+        <app-listform [selections]="selection" (selectionsChanged)="newSelection = $event"></app-listform>
     </div>
 </div>
 <div class="row">
     <div class="col-12">
-        <app-table [selections]="selection"></app-table>
+        <app-table [selections]="newSelection"></app-table>
     </div>
 </div>

@@ -13,7 +13,8 @@ export class RanklistComponent implements OnInit {
         branch: 'CSE',
         sem: '6'
     };
-    
+    newSelection = {};
+
     constructor() { }
     
     ngOnInit() {

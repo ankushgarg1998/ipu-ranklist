@@ -33,25 +33,53 @@
                 </table>
                 <p><b>Rank: </b>&nbsp; #{{banda.rank}}</p>
                 <hr>
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1" [(ngModel)]="showMinorMajor">
-                    <label class="form-check-label" for="exampleCheck1">&nbsp; Show Internal/External Marks</label>
+                
+                <div *ngIf="!overall">
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1" [(ngModel)]="showMinorMajor">
+                        <label class="form-check-label" for="exampleCheck1">&nbsp; Show Internal/External Marks</label>
+                    </div>
+                    <br>
+                    <table class="table table-striped table-sm">
+                        <thead class="thead-dark">
+                            <th>Subject</th>
+                            <th *ngIf="showMinorMajor">Int. | Ext.</th>
+                            <th>Marks</th>
+                        </thead>
+                        <tbody class="tbody">
+                            <tr *ngFor="let subject of banda['semester']['subjects']" >
+                                <td>{{subject.name}}</td>
+                                <td *ngIf="showMinorMajor">{{subject.minor}} | {{subject.major}}</td>
+                                <td>{{subject.marks}} ({{subject.grade}})</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-                <br>
-                <table class="table table-striped table-sm">
-                    <thead class="thead-dark">
-                        <th>Subject</th>
-                        <th *ngIf="showMinorMajor">Int. | Ext.</th>
-                        <th>Marks</th>
-                    </thead>
-                    <tbody class="tbody">
-                        <tr *ngFor="let subject of banda['semester']['subjects']" >
-                            <td>{{subject.name}}</td>
-                            <td *ngIf="showMinorMajor">{{subject.minor}} | {{subject.major}}</td>
-                            <td>{{subject.marks}} ({{subject.grade}})</td>
-                        </tr>
-                    </tbody>
-                </table>
+                
+                <div *ngIf="overall">
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1" [(ngModel)]="showCreditMarks">
+                        <label class="form-check-label" for="exampleCheck1">&nbsp; Show Credit Marks and Percentage</label>
+                    </div>
+                    <br>
+                    <table class="table table-striped table-sm">
+                        <thead class="thead-dark">
+                            <th>Semester</th>
+                            <th>Marks</th>
+                            <th>Percentage</th>
+                        </thead>
+                        <tbody class="tbody">
+                            <tr *ngFor="let sem of banda['semesters']; let i = index" >
+                                <td>Sem {{ (i+1) }}</td>
+                                <td *ngIf="!showCreditMarks">{{sem.total_marks}} / {{sem.max_marks}}</td>
+                                <td *ngIf="!showCreditMarks">{{sem.percentage.toFixed(3)}}</td>
+                                <td *ngIf="showCreditMarks">{{sem.total_credit_marks}} / {{sem.max_credit_marks}}</td>
+                                <td *ngIf="showCreditMarks">{{sem.credit_percentage.toFixed(3)}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

@@ -28,6 +28,7 @@
     </div>
     <div class="form-group">
         <select name="sem" id="sem" class="form-control" [(ngModel)]="selections.sem" required>
+            <option value="0">Overall</option>
             <option value="1">Sem 1</option>
             <option value="2">Sem 2</option>
             <option value="3">Sem 3</option>
@@ -36,7 +37,6 @@
             <option value="6">Sem 6</option>
             <option value="7">Sem 7</option>
             <option value="8">Sem 8</option>
-            <option value="0" disabled>Overall</option>
         </select>
     </div>
     <button class="btn btn-dark" style="color: white;" (click)="onSearch()">Search</button>

@@ -11,7 +11,9 @@ import * as allSubjects from '../../shared/subjects.json';
 export class ModalComponent implements OnInit {
     banda = {};
     showMinorMajor = false;
+    showCreditMarks = false;
     allTheSubjects = allSubjects;
+    overall = false;
     @ViewChild('modalButton') modalButton: ElementRef;
     
     constructor(private listService: ListService) { }
@@ -20,10 +22,15 @@ export class ModalComponent implements OnInit {
         this.listService.rowSelectedEvent
         .subscribe(banda => {
             this.modalButton.nativeElement.click();
-            banda.semester.subjects = banda.semester.subjects.map(subj => {
-                subj.name = this.allTheSubjects['default'][subj.paper_id] || `paper_id(${subj.paper_id})`;
-                return subj;
-            });
+            if(banda.semester.subjects) {
+                this.overall = false;
+                banda.semester.subjects = banda.semester.subjects.map(subj => {
+                    subj.name = this.allTheSubjects['default'][subj.paper_id] || `paper_id(${subj.paper_id})`;
+                    return subj;
+                });
+            } else {
+                this.overall = true;
+            }
             // console.log(banda);
             this.banda = banda;
         });

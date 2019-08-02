@@ -12,11 +12,13 @@ import { NgxSpinnerService } from 'ngx-spinner';
 export class TableComponent implements OnInit, OnChanges {
     fullList= [];
     list = [];
-    @Input() selections = {};
+    @Input() selections;
+    isDataPresent = false;
     
     constructor(private modelService: ModelService, private listService: ListService, private spinner: NgxSpinnerService) { }
 
     ngOnInit() {
+        // console.log(this.selections);
     }
 
     ngOnChanges(changes: SimpleChanges) {
@@ -30,6 +32,7 @@ export class TableComponent implements OnInit, OnChanges {
                         // console.log(res);
                         this.setListWithRanking(res);
                         this.spinner.hide();
+                        this.isDataPresent = true;
                     });
             }
         }

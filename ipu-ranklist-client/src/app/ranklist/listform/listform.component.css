@@ -10,6 +10,10 @@
     flex-wrap: wrap;
 }
 
+.btn {
+    width: 150px;
+}
+
 
 @media(max-width: 786px) {
     .form-group {
@@ -22,5 +26,9 @@
     }
     .form-control {
         font-size: 0.9rem;
+    }
+    .btn {
+        width: 100%;
+        margin-top: 1rem;
     }
 }

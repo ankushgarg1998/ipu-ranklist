@@ -21,10 +21,17 @@ export class ListformComponent implements OnInit {
     ngOnInit() {
         this.courses = allCourses['default'];
         this.instis = allInstis['default'];
-        this.ngForm.form.valueChanges.subscribe(x => {
-            // console.log(x);
-            this.selectionsChanged.emit(x);
-        });
+        // this.ngForm.form.valueChanges.subscribe(x => {
+        //     console.log('a', x);
+        //     console.log('b', this.ngForm.value);
+        //     this.selectionsChanged.emit(x);
+        // });
+    }
+
+    onSearch() {
+        // console.log('clicked');
+        // console.log(this.ngForm.value);
+        this.selectionsChanged.emit(this.ngForm.value);
     }
     
 }

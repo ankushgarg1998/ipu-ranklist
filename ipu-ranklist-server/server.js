@@ -41,9 +41,9 @@ let cacheMiddleware = (duration) => {
 }
 
 // branch and batch and compulsory query params;
-app.get('/api/list', cacheMiddleware(60), (req, res) => {
+app.get('/api/list', cacheMiddleware(500), (req, res) => {
     try {
-        console.log(req.query);
+        console.log(`List Hit @ ${JSON.stringify(req.query)}`);
         let insti = req.query.insti || '0';
         let shift = req.query.shift || '0';
         let batch = req.query.batch || '16';
@@ -51,8 +51,7 @@ app.get('/api/list', cacheMiddleware(60), (req, res) => {
         let sem = parseInt(req.query.sem) || 1;
 
         let options = helper.makeListOptions(insti, shift, batch, branch);
-        console.log('List Hit. Options:');
-        console.log(options);
+        // console.log(options);
 
         Student.find(options).then(students => {
             let newStudents = students.map(stu => {

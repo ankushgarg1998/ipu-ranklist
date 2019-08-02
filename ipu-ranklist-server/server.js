@@ -3,6 +3,7 @@ require('./config/config');
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const cache = require('memory-cache');
 
 var { mongoose } = require('./db/mongoose');
 
@@ -19,8 +20,28 @@ const port = process.env.PORT;
 
 app.use(bodyParser.json());
 
+// configure cache middleware
+let memCache = new cache.Cache();
+let cacheMiddleware = (duration) => {
+    return (req, res, next) => {
+        let key =  '__express__' + req.originalUrl || req.url
+        let cacheContent = memCache.get(key);
+        if(cacheContent){
+            res.send( cacheContent );
+            return
+        }else{
+            res.sendResponse = res.send
+            res.send = (body) => {
+                memCache.put(key,body,duration*1000);
+                res.sendResponse(body)
+            }
+            next()
+        }
+    }
+}
+
 // branch and batch and compulsory query params;
-app.get('/api/list', (req, res) => {
+app.get('/api/list', cacheMiddleware(60), (req, res) => {
     try {
         console.log(req.query);
         let insti = req.query.insti || '0';
@@ -51,7 +72,7 @@ app.get('/api/list', (req, res) => {
     }
 });
 
-app.get('/api/student', (req, res) => {
+app.get('/api/student', cacheMiddleware(30), (req, res) => {
     try {
         console.log(req.query);
         if(!req.query.enroll) {

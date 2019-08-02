@@ -55,7 +55,11 @@ export class TableComponent implements OnInit, OnChanges {
                 lag = 0;
             }
         }
-        this.list = this.fullList.slice();
+        if(this.fullList.length > 0 && this.fullList[0].semester.max_marks === 0) {
+            this.list = [];
+        } else {
+            this.list = this.fullList.slice();
+        }
     }
 
     rowClicked(index) {

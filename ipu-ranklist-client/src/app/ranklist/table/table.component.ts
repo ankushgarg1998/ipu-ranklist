@@ -44,7 +44,7 @@ export class TableComponent implements OnInit, OnChanges {
     }
 
     setListWithRanking(res, overall) {
-        console.log(res);
+        // console.log(res);
         if(overall) {
             res.forEach(element => {
                 element.semester = {

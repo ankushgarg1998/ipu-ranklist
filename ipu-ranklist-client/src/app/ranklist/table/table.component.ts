@@ -44,19 +44,24 @@ export class TableComponent implements OnInit, OnChanges {
     }
 
     setListWithRanking(res, overall) {
+        console.log(res);
         if(overall) {
             res.forEach(element => {
                 element.semester = {
                     total_marks: 0,
                     max_marks: 0,
                     total_credit_marks: 0,
-                    max_credit_marks: 0
+                    max_credit_marks: 0,
+                    total_grade_points: 0,
+                    max_credits: 0
                 };
                 element.semesters.forEach(sem => {
                     element.semester.total_marks += sem.total_marks;
                     element.semester.max_marks += sem.max_marks;
                     element.semester.total_credit_marks += sem.total_credit_marks;
                     element.semester.max_credit_marks += sem.max_credit_marks;
+                    element.semester.total_grade_points += (sem.total_grade_points || 0);
+                    element.semester.max_credits += sem.max_credits;
                 });
                 element.semester.percentage = (element.semester.total_marks*100)/element.semester.max_marks;
                 element.semester.credit_percentage = (element.semester.total_credit_marks*100)/element.semester.max_credit_marks;
@@ -64,15 +69,15 @@ export class TableComponent implements OnInit, OnChanges {
         }
         
         this.fullList = res.sort((a, b) => {
-            let aMarks = a.semester.total_marks;
-            let bMarks = b.semester.total_marks;
+            let aMarks = a.semester.percentage;
+            let bMarks = b.semester.percentage;
             return (aMarks < bMarks? 1: (aMarks > bMarks? -1: 0));
         });
         let rank = 1, lag = 0;
         for(let i=0; i<this.fullList.length; i++) {
             if (i==0)
                 this.fullList[i].rank = 1;
-            else if (this.fullList[i-1].semester.total_marks === this.fullList[i].semester.total_marks) {
+            else if (this.fullList[i-1].semester.percentage === this.fullList[i].semester.percentage) {
                 this.fullList[i].rank = rank;
                 ++lag;
             }
@@ -88,6 +93,7 @@ export class TableComponent implements OnInit, OnChanges {
             this.list = this.fullList.slice();
         }
     }
+
 
     rowClicked(index) {
         this.listService.rowSelected(this.list[index]);

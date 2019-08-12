@@ -17,9 +17,11 @@ import { RanklistComponent } from './ranklist/ranklist.component';
 import { ListformComponent } from './ranklist/listform/listform.component';
 import { ProfileComponent } from './student/profile/profile.component';
 import { StudentComponent } from './student/student.component';
+import { NavComponent } from './nav/nav.component';
+import { HomeComponent } from './home/home.component';
 
 const appRoutes: Routes = [
-    { path: '', component: RanklistComponent },
+    { path: '', component: HomeComponent },
     { path: 'ranklist', component: RanklistComponent },
     { path: 'student', component: StudentComponent },
     { path: 'student/:enroll', component: ProfileComponent }
@@ -34,7 +36,9 @@ const appRoutes: Routes = [
         RanklistComponent,
         ListformComponent,
         ProfileComponent,
-        StudentComponent
+        StudentComponent,
+        NavComponent,
+        HomeComponent
     ],
     imports: [
         BrowserModule,

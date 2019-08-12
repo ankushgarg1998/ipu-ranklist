@@ -8,11 +8,11 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">Student Marksheet</h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <button type="button" class="close" data-dismiss="modal" #closeButton>&times;</button>
             </div>
             <div class="modal-body" *ngIf="banda['semester']">
                 <p><b>Enrollment Number: </b>&nbsp; {{banda.enroll_no}}</p>
-                <p><b>Name: </b>&nbsp; {{banda.name}}</p>
+                <p><b>Name: </b>&nbsp; <a (click)="closeButton.click()" [routerLink]="['/student', banda.enroll_no]" title="View {{banda.name}}'s Full Profile">{{banda.name}}</a></p>
                 <table class="modal-data">
                     <tr>
                         <td>

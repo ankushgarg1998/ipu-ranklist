@@ -1,0 +1,22 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" [routerLink]="['/']" (click)="navClose.click()" routerLinkActive="active">IPU Ranklist v1.5 <span style="font-size: 0.6em; font-weight: bold;"> BETA</span></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" #navClose>
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <a class="nav-link" (click)="navClose.click()" [routerLink]="['/']">Home</a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" (click)="navClose.click()" routerLink="/ranklist">College Ranklist</a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" (click)="navClose.click()" routerLink="/student">Student Profile</a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link disabled">University Ranklist</a>
+            </li>
+        </ul>
+    </div>
+</nav>

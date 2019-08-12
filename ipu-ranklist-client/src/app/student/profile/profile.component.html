@@ -1,11 +1,7 @@
-<h5 *ngIf="!validStudent">Sorry. No data for this enrollment number was found! 😧</h5>
-<div *ngIf="validStudent">
-    <div class="jumbotron" style="background-color: white">
-        <h4 class="display-5">{{student.name}}</h4>
-        <p>{{student.enroll_no}}</p>
-        <hr class="my-4">
-        <p>{{findCollegeName(student.insti_code)}}</p>
-    </div>
+<h5 *ngIf="validStudent === -1" align="center">Sorry. No data for this enrollment number was found! 😧</h5>
+<div *ngIf="validStudent == 1">
+    <h4 class="display-5" align="right">{{student.name}} ({{student.enroll_no}})</h4>
+    <p align="right">{{findCollegeName(student.insti_code)}}</p>
     
     <ul class="nav nav-tabs">
         <li class="nav-item" [ngClass]="{active: selectedSem===sem}" *ngFor="let sem of sems" (click)="tabChange(sem)">
@@ -29,6 +25,11 @@
                     </td>
                     <td>
                         <p><b>Credit Percentage: </b>&nbsp; {{student['semesters'][selectedSem-1].credit_percentage.toFixed(3)}}%</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p><b>CGPA: </b>&nbsp; {{(student['semesters'][selectedSem-1].total_grade_points / (student['semesters'][selectedSem-1].max_credits)).toFixed(3)}}</p>
                     </td>
                 </tr>
             </table>
@@ -55,4 +56,10 @@
             </table>
         </div>
     </div>
+</div>
+
+<div class="row" style="padding: 50px 0px;">
+    <ngx-spinner bdOpacity = 0 bdColor = "#ffffff" size = "medium" color = "#000000" type = "ball-atom" [fullScreen] = "false">
+        <p style="color: black; margin-top: 10rem;" > Fetching Data... </p>
+    </ngx-spinner>
 </div>

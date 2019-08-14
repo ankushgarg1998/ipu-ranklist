@@ -25,16 +25,17 @@ So this is a minimalist result website I'm making for our University students, i
   - **Batch** *(Ex: 2016-20, 2017-21...)*, 
   - **Branch** *(Ex: CSE, IT, ECE, EEE, EE, MAE, ME, MET, TE, PE...)* and
   - **Semester** *(Ex: Sem1, Sem2, Sem3...)*
-
-
-## Planned Features
 - Subject-wise marks when clicked on any name in the ranklist.
 - A search-box to find a Student/Enrollment Number in the displayed ranklist.
 - CGPA & credit-percentage also shown with subject-wise marks.
-- An overall section for semesters, that shows cumulative percentage till now and maybe even cumulative CGPA.
+- An overall section for semesters, that shows cumulative percentage till now and even cumulative CGPA.
+- A profile page that shows all the history of a single student including, subject-wise, semester-wise marks and CGPA.
+
+
+## Planned Features
+- Overall section in Student Profile.
+- Ranks in the profile section.
 - An overall section for institutes, that shows a ranklist which includes students from all the colleges of a particular branch.
-- A profile page that shows all the history of a single student including, subject-wise, semester-wise marks, CGPA, ranks and an overall section.
-- A loading animation to show that data is being fetched.
 
 <hr>
 

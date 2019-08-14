@@ -19,6 +19,7 @@ import { ProfileComponent } from './student/profile/profile.component';
 import { StudentComponent } from './student/student.component';
 import { NavComponent } from './nav/nav.component';
 import { HomeComponent } from './home/home.component';
+import { LottieAnimationViewModule } from 'ng-lottie';
 
 const appRoutes: Routes = [
     { path: '', component: HomeComponent },
@@ -45,6 +46,7 @@ const appRoutes: Routes = [
         FormsModule,
         HttpClientModule,
         NgxSpinnerModule,
+        LottieAnimationViewModule.forRoot(),
         RouterModule.forRoot(appRoutes)
     ],
     providers: [

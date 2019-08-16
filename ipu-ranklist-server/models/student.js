@@ -46,6 +46,12 @@ var StudentSchema = new mongoose.Schema({
     }]
 });
 
+StudentSchema.index({
+    insti_code: 1,
+    course_code: 1,
+    admission_year: 1
+});
+
 StudentSchema.path('enroll_no').validate((enrollno) => {
     return enrollno && enrollno.length === 11;
 }, 'Invalid Enrollment Number (must be 11 characters)');

@@ -77,7 +77,7 @@ app.get('/api/list', cacheMiddleware(500), (req, res) => {
     }
 });
 
-app.get('/api/student', cacheMiddleware(30), (req, res) => {
+app.get('/api/student', cacheMiddleware(500), (req, res) => {
     try {
         console.log(req.query);
         if(!req.query.enroll) {

@@ -7,16 +7,25 @@ import { Router, ActivatedRoute } from '@angular/router';
     styleUrls: ['./student.component.css']
 })
 export class StudentComponent implements OnInit {
-    
-    constructor(private router: Router, private route: ActivatedRoute) { }
-    
+
+    public lottieConfig: Object;
+
+    constructor(private router: Router, private route: ActivatedRoute) {
+        this.lottieConfig = {
+            path: 'assets/anims/profile_anim.json',
+            renderer: 'svg',
+            autoplay: true,
+            loop: true
+        };
+    }
+
     ngOnInit() {
     }
-    
+
     clicked(roll) {
-        if(roll.length === 11) {
-            this.router.navigate([roll], {relativeTo: this.route});
+        if (roll.length === 11) {
+            this.router.navigate([roll], { relativeTo: this.route });
         }
     }
-    
+
 }

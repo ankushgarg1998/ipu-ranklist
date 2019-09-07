@@ -1,4 +1,4 @@
-# ipu-ranklist v1.0
+# ipu-ranklist v1.6
 
 ![Website ipuraklist.surge.sh](https://img.shields.io/website-up-down-green-red/https/ipuranklist.surge.sh.svg)
 ![start with why](https://img.shields.io/badge/start%20with-why%3F-brightgreen.svg?style=flat)
@@ -30,12 +30,13 @@ So this is a minimalist result website I'm making for our University students, i
 - CGPA & credit-percentage also shown with subject-wise marks.
 - An overall section for semesters, that shows cumulative percentage till now and even cumulative CGPA.
 - A profile page that shows all the history of a single student including, subject-wise, semester-wise marks and CGPA.
+- Overall section in Student Profile.
 
 
 ## Planned Features
-- Overall section in Student Profile.
-- Ranks in the profile section.
 - An overall section for institutes, that shows a ranklist which includes students from all the colleges of a particular branch.
+- Ranks in the profile section.
+- Integration of BCA and BBA courses.
 
 <hr>
 

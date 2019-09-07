@@ -39,3 +39,13 @@
 .nav-item {
     cursor: pointer;
 }
+
+
+tbody > tr > td {
+    width: auto;
+    white-space: nowrap;
+}
+
+tbody > tr > td:first-child {
+    white-space: pre-wrap;
+}

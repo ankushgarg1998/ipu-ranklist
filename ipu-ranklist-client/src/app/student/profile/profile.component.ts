@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { ModelService } from 'src/app/shared/model.service';
+import { ModelService } from 'app/shared/model.service';
 
 import * as allCourses from '../../shared/courses.json';
 import * as allInstis from '../../shared/institutes.json';

@@ -12,7 +12,7 @@ export class StudentComponent implements OnInit {
 
     constructor(private router: Router, private route: ActivatedRoute) {
         this.lottieConfig = {
-            path: './assets/anims/profile_anim.json',
+            path: 'assets/anims/profile_anim.json',
             renderer: 'svg',
             autoplay: true,
             loop: true

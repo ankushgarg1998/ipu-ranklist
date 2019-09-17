@@ -54,6 +54,7 @@ app.get('/api/list', cacheMiddleware(500), (req, res) => {
         // console.log(options);
 
         Student.find(options).then(students => {
+            console.log('db query resolved');
             let newStudents = students.map(stu => {
                 stu = stu.toObject();
                 if(sem === 0) {
@@ -94,6 +95,46 @@ app.get('/api/student', cacheMiddleware(500), (req, res) => {
             res.send(`[Caught]There was an error in fetching data from the database. ${err}`);
         });
     } catch (err) {
+        console.log('SERVER ERROR', err);
+        res.status(500).send(err);
+    }
+});
+
+app.get('/api/university-list', (req, res) => {
+    try {
+        console.log(`University List Hit @ ${JSON.stringify(req.query)}`);
+        let batch = req.query.batch || '16';
+        let branch = req.query.branch || 'CSE';
+        let sem = parseInt(req.query.sem || '1');
+
+        let options = helper.makeUniListOptions(batch, branch, sem);
+
+        Student.find(options).then(students => {
+            console.log('db query resolved');
+            let newStudents;
+            if(sem === 0) {
+                newStudents = students.map(stu => {
+                    stu = stu.toObject();
+                    stu.semesters.forEach(sem => {
+                        sem.subjects = [];
+                    });
+                    return stu;
+                });
+            } else {
+                newStudents = students.map(stu => {
+                    stu = stu.toObject();
+                    stu.semester = stu.semesters[sem-1];
+                    stu.semester.subjects = null;
+                    stu.semesters = null;
+                    return stu;
+                });
+            }
+            console.log(`=> Data of ${students.length} students sent.`);
+            res.send(newStudents);
+        }).catch((err) => {
+            res.send(`[Caught]There was an error in fetching data from the database. ${err}`);
+        });
+    } catch(err) {
         console.log('SERVER ERROR', err);
         res.status(500).send(err);
     }

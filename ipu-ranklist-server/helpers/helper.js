@@ -46,4 +46,21 @@ function makeListOptions(insti, shift, batch, branch) {
     return options;
 }
 
-module.exports = { makeListOptions };
+function makeUniListOptions(batch, branch, sem) {
+    let options = {};
+    let admissionYear = parseInt(batch);
+    let courseObj = getCourseObj(branch);
+    options['$or'] = [
+        {
+            course_code: courseObj.code,
+            admission_year: admissionYear,
+        },
+        {
+            course_code: courseObj.codeLE,
+            admission_year: admissionYear+1,
+        }
+    ];
+    return options;
+}
+
+module.exports = { makeListOptions, makeUniListOptions };

@@ -38,7 +38,7 @@ export class ProfileComponent implements OnInit {
                 } else {
                     this.validStudent = 1;
                     this.student = data[0];
-                    console.log(this.student);
+                    // console.log(this.student);
                     // Defining the limit on semesters
                     this.sems = [0];
                     this.student['semesters'].unshift({
@@ -72,7 +72,7 @@ export class ProfileComponent implements OnInit {
                     this.student['semesters'][0].credit_percentage = this.student['semesters'][0].total_credit_marks*100 / this.student['semesters'][0].max_credit_marks;
                     if(this.sems.length === 0)
                         this.validStudent = -1;
-                    console.log(this.student);
+                    // console.log(this.student);
                 }
             })
         })

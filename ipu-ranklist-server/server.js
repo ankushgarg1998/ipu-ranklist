@@ -4,6 +4,7 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const cache = require('memory-cache');
+const path = require('path');
 
 var { mongoose } = require('./db/mongoose');
 
@@ -97,6 +98,12 @@ app.get('/api/student', cacheMiddleware(500), (req, res) => {
         console.log('SERVER ERROR', err);
         res.status(500).send(err);
     }
+});
+
+app.use(express.static('dist'));
+
+app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'dist', 'index.html'));
 });
 
 app.listen(port, () => {

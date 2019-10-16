@@ -30,7 +30,7 @@
                             <p><b>Credit Percentage: </b>&nbsp; {{banda['semester'].credit_percentage.toFixed(3)}}%</p>
                         </td>
                     </tr>
-                    <p><b>CGPA: </b>&nbsp; {{(banda['semester'].total_grade_points / (banda['semester'].max_credits)).toFixed(3)}}</p>
+                    <p><b>{{overall? "CGPA: ": "SGPA: "}}</b>&nbsp; {{(banda['semester'].total_grade_points / (banda['semester'].max_credits)).toFixed(3)}}</p>
                 </table>
                 <p><b>Rank: </b>&nbsp; #{{banda.rank}}</p>
                 <hr>
@@ -68,7 +68,7 @@
                             <th>Semester</th>
                             <th>Marks</th>
                             <th>Percentage</th>
-                            <th>CGPA</th>
+                            <th>SGPA</th>
                         </thead>
                         <tbody class="tbody">
                             <tr *ngFor="let sem of banda['semesters']; let i = index" >

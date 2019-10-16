@@ -11,7 +11,7 @@ export class RanklistComponent implements OnInit {
         shift: 'M',
         batch: '16',
         branch: 'CSE',
-        sem: '6'
+        sem: '0'
     };
     newSelection = {};
 

@@ -32,7 +32,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <p><b>CGPA: </b>&nbsp; {{(student['semesters'][selectedSem].total_grade_points / (student['semesters'][selectedSem].max_credits)).toFixed(3)}}</p>
+                        <p><b>{{selectedSem === 0? "CGPA: ": "SGPA: "}}</b>&nbsp; {{(student['semesters'][selectedSem].total_grade_points / (student['semesters'][selectedSem].max_credits)).toFixed(3)}}</p>
                     </td>
                 </tr>
             </table>
@@ -66,7 +66,7 @@
                         <th>Sem</th>
                         <th>Marks</th>
                         <th>Percentage</th>
-                        <th>CGPA</th>
+                        <th>SGPA</th>
                     </thead>
                     <tbody class="tbody">
                         <tr *ngFor="let semester of student['semesters'] | slice: 1; let i=index">

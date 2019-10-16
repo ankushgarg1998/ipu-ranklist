@@ -12,6 +12,7 @@ export class StudentComponent implements OnInit {
     animJsons = [
         'batman',
         'flying-cat',
+        'penguin',
         // 'karam'
     ];
     animIndex = Math.floor((Math.random() * (this.animJsons.length)));

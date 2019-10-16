@@ -106,30 +106,28 @@ app.get('/api/university-list', (req, res) => {
         let batch = req.query.batch || '16';
         let branch = req.query.branch || 'CSE';
         let sem = parseInt(req.query.sem || '1');
+        let temp = `semesters.${sem}.total_marks`;
+        let tempObj = {};
+        tempObj[temp] = -1;
 
         let options = helper.makeUniListOptions(batch, branch, sem);
 
-        Student.find(options).then(students => {
-            console.log('db query resolved');
-            let newStudents;
-            if(sem === 0) {
-                newStudents = students.map(stu => {
-                    stu = stu.toObject();
+        Student.find(options, null, {sort: tempObj, limit: 100}).then(students => {
+            console.log('UniList query resolved');
+            console.log(`=> Data of ${students.length} students sent.`);
+            // res.send(students.map(stu => stu.name));
+            let newStudents = students.map(stu => {
+                stu = stu.toObject();
+                if(sem === 0) {
                     stu.semesters.forEach(sem => {
                         sem.subjects = [];
-                    });
-                    return stu;
-                });
-            } else {
-                newStudents = students.map(stu => {
-                    stu = stu.toObject();
+                    })
+                } else {
                     stu.semester = stu.semesters[sem-1];
-                    stu.semester.subjects = null;
                     stu.semesters = null;
-                    return stu;
-                });
-            }
-            console.log(`=> Data of ${students.length} students sent.`);
+                }
+                return stu;
+            });
             res.send(newStudents);
         }).catch((err) => {
             res.send(`[Caught]There was an error in fetching data from the database. ${err}`);

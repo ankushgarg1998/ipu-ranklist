@@ -8,7 +8,7 @@
                 <div class="form-group">
                     <input id="enroll" type="text" class="form-control" placeholder="01415002716" #roll>
                 </div>
-                <button type="submit" (click)="clicked(roll.value)"
+                <button type="submit" (click)="clicked(roll.value.trim())"
                     class="mb-2 btn btn-sm btn-dark bg-dark mr-1 px-5">SUBMIT</button>
             </form>
         </div>

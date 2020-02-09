@@ -23,6 +23,7 @@
     "core-js": "^2.5.4",
     "jquery": "^3.4.1",
     "ng-lottie": "^0.3.2",
+    "ng2-adsense": "^7.0.0",
     "ngx-spinner": "7.2.0",
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",

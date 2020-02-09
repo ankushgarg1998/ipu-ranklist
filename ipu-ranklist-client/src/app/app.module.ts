@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { NgxSpinnerModule } from "ngx-spinner";
+import { AdsenseModule } from "ng2-adsense";
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -47,7 +48,11 @@ const appRoutes: Routes = [
         HttpClientModule,
         NgxSpinnerModule,
         LottieAnimationViewModule.forRoot(),
-        RouterModule.forRoot(appRoutes)
+        RouterModule.forRoot(appRoutes),
+        AdsenseModule.forRoot({
+            adClient: 'ca-pub-2511778193246891',
+            adSlot: 7676264485
+        })
     ],
     providers: [
         ListService,

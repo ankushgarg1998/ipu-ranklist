@@ -4,6 +4,7 @@ import { ModelService } from 'app/shared/model.service';
 
 import * as allCourses from '../../shared/courses.json';
 import * as allInstis from '../../shared/institutes.json';
+import * as allBcaInstis from '../../shared/institutes-bca.json';
 import * as allSubjects from '../../shared/subjects.json';
 import { NgxSpinnerService } from 'ngx-spinner';
 
@@ -52,7 +53,7 @@ export class ProfileComponent implements OnInit {
                         max_credits: 0,
                         subjects: []
                     });
-                    for(let i=1; i<=8; i++) {
+                    for(let i=1; i<this.student['semesters'].length; i++) {
                         if(this.student['semesters'][i].total_marks !== 0) {
                             this.sems.push(i);
                             this.student['semesters'][i]['subjects'] = this.student['semesters'][i]['subjects'].map(subj => {
@@ -80,6 +81,8 @@ export class ProfileComponent implements OnInit {
     
     findCollegeName(code) {
         let institute = allInstis.filter(insti => (insti.code === code || insti.codeEve === code));
+        if(institute.length === 0)
+            return allBcaInstis.filter(insti => (insti.codes.includes(code)))[0]['name'];
         return institute[0]['name'];
     }
     

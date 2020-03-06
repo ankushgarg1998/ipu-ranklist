@@ -1,0 +1,127 @@
+[
+    {
+        "name": "COMM-IT CAREER ACADEMY (MINORITY EDUCATIONAL INSTITUTION)",
+        "abbrev": "COMM-IT",
+        "codes": ["120"]
+    },
+    {
+        "name": "INSTITUTE OF INFORMATION TECHNOLOGY AND MANAGEMENT",
+        "abbrev": "IITM",
+        "codes": ["137", "211"]
+    },
+    {
+        "name": "JAGAN INSTITUTE OF MANAGEMENT STUDIES, ROHINI",
+        "abbrev": "JIMS",
+        "codes": ["140", "504"]
+    },
+    {
+        "name": "JAGANNATH INTERNATIONAL MANAGEMENT SCHOOL, VASANT KUNJ",
+        "abbrev": "JIMS-VK",
+        "codes": ["142", "214"]
+    },
+    {
+        "name": "KALKA INSTITUTE FOR RESEARCH & ADVANCED STUDIES",
+        "abbrev": "KIRAS",
+        "codes": ["144"]
+    },
+    {
+        "name": "MAHARAJA SURAJMAL INSTITUTE",
+        "abbrev": "MSI",
+        "codes": ["149", "212"]
+    },
+    {
+        "name": "R C INSTITUTE OF TECHNOLOGY",
+        "abbrev": "RCIT",
+        "codes": ["158"]
+    },
+    {
+        "name": "SIRIFORT COLLEGE OF COMPUTER TECHNOLOGY & MANAGEMENT",
+        "abbrev": "SCCTM",
+        "codes": ["167", "243"]
+    },
+    {
+        "name": "TRINITY INSTITUTE OF HIGHER EDUCATION",
+        "abbrev": "TIHE",
+        "codes": ["172"]
+    },
+    {
+        "name": "VIVEKANANDA INSTITUTE OF PROFESSIONAL STUDIES",
+        "abbrev": "VIPS",
+        "codes": ["177", "298"]
+    },
+    {
+        "name": "BLS INSTITUTE OF TECHNOLOGY & MANAGEMENT",
+        "abbrev": "BITM",
+        "codes": ["205"]
+    },
+    {
+        "name": "TRINITY INSTITUTE OF PROFESSIONAL STUDIES",
+        "abbrev": "TIPS",
+        "codes": ["206", "240"]
+    },
+    {
+        "name": "CHANDERPRABHU JAIN COLLEGE OF HIGHER STUDIES AND SCHOOL OF LAW",
+        "abbrev": "CPJCHS",
+        "codes": ["215", "242"]
+    },
+    {
+        "name": "SGIT SCHOOL OF MANAGEMENT, GHAZIABAD",
+        "abbrev": "SGIT",
+        "codes": ["247"]
+    },
+    {
+        "name": "AMBEDKAR INSTITUTE OF TECHNOLOGY",
+        "abbrev": "AIT",
+        "codes": ["248"]
+    },
+    {
+        "name": "JIMS ENGINEERING MANAGEMENT TECHNICAL CAMPUS, GREATER NOIDA",
+        "abbrev": "JEMTEC",
+        "codes": ["255"]
+    },
+    {
+        "name": "INTEGRATED INSTITUTE OF TECHNOLOGY",
+        "abbrev": "IIT",
+        "codes": ["501"]
+    },
+    {
+        "name": "FAIRFIELD INSTITUTE OF MANAGEMENT & TECHNOLOGY",
+        "abbrev": "FIMT",
+        "codes": ["514", "901"]
+    },
+    {
+        "name": "SRI GURU TEGH BAHADUR INSTITUTE OF MANAGEMENT AND INFORMATION TECHNOLOGY",
+        "abbrev": "SGTBIMIT",
+        "codes": ["902", "911"]
+    },
+    {
+        "name": "INSTITUTE OF INNOVATION IN TECHNOLOGY & MANAGEMENT",
+        "abbrev": "IITM",
+        "codes": ["244", "903"]
+    },
+    {
+        "name": "KAMAL INSTITUTE OF HIGHER EDUCATION AND ADVANCED TECHNOLOGY",
+        "abbrev": "KIHEAT",
+        "codes": ["967"]
+    },
+    {
+        "name": "BM INSTITUTE OF ENGINEERING & TECHNOLOGY",
+        "abbrev": "BMIET",
+        "codes": ["553"]
+    },
+    {
+        "name": "DELHI TECHNICAL CAMPUS, GREATER NOIDA",
+        "abbrev": "DTC",
+        "codes": ["180"]
+    },
+    {
+        "name": "UNITED COLLEGE OF EDUCATION",
+        "abbrev": "UCE",
+        "codes": ["271"]
+    },
+    {
+        "name": "KCC INSTITUTE OF LEGAL AND HIGHER EDUCATION",
+        "abbrev": "KCCILHE",
+        "codes": ["274"]
+    }
+]

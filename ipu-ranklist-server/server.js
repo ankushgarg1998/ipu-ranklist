@@ -12,6 +12,7 @@ const courses = require('./data/courses.json');
 const institutes = require('./data/institutes.json')
 
 var { Student } = require('./models/student');
+var { BcaStudent } = require('./models/bcaStudent');
 var helper = require('./helpers/helper');
 
 var app = express();
@@ -85,12 +86,60 @@ app.get('/api/student', cacheMiddleware(500), (req, res) => {
             throw Error('No Enrollment No was sent in API Request');
         }
         let enroll = req.query.enroll;
+        let courseCode = enroll.substring(6, 9);
 
-        Student.find({
-            enroll_no: enroll
-        }).then(student => {
-            // console.log(student);
-            res.send(student);
+        if(courseCode === '020') {
+            BcaStudent.find({
+                enroll_no: enroll
+            }).then(student => {
+                // console.log(student);
+                res.send(student);
+            }).catch((err) => {
+                res.send(`[Caught]There was an error in fetching data from the database. ${err}`);
+            });
+        } else {
+            Student.find({
+                enroll_no: enroll
+            }).then(student => {
+                // console.log(student);
+                res.send(student);
+            }).catch((err) => {
+                res.send(`[Caught]There was an error in fetching data from the database. ${err}`);
+            });
+        }
+
+    } catch (err) {
+        console.log('SERVER ERROR', err);
+        res.status(500).send(err);
+    }
+});
+
+// BCA RankList (Not complete yet)
+app.get('/api/bcaList', cacheMiddleware(500), (req, res) => {
+    try {
+        console.log(`List Hit @ ${JSON.stringify(req.query)}`);
+        let insti = req.query.insti || 'MSI';
+        let batch = req.query.batch || '16';
+        let sem = parseInt(req.query.sem || '1');
+
+        let options = helper.makeBcaListOptions(insti, batch);
+        console.log(options);
+
+        BcaStudent.find(options).then(students => {
+            let newStudents = students.map(stu => {
+                stu = stu.toObject();
+                if(sem === 0) {
+                    stu.semesters.forEach(sem => {
+                        sem.subjects = [];
+                    })
+                } else {
+                    stu.semester = stu.semesters[sem-1];
+                    stu.semesters = null;
+                }
+                return stu;
+            });
+            console.log(`=> Data of ${students.length} students sent.`);
+            res.send(newStudents);
         }).catch((err) => {
             res.send(`[Caught]There was an error in fetching data from the database. ${err}`);
         });

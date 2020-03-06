@@ -1,5 +1,6 @@
 var allCourses = require('../data/courses.json');
 var allInstitutes = require('../data/institutes.json');
+var allBcaInstitutes = require('../data/institutes-bca.json');
 
 
 // For an array f instis ['msit', mait'], this function returns array of all the instiCodes including the case of shifts where shift can be 'M', 'E', '0' (both)
@@ -14,6 +15,11 @@ function getInstiCodes(instis, shift) {
         return accumulator;
     }, []);
     return instiCodes;
+}
+
+function getBcaInstiCodes(insti) {
+    insti = insti.toUpperCase();
+    return allBcaInstitutes.filter(i => i.abbrev === insti)[0].codes;
 }
 
 // Returns course ka obj as per courses.json
@@ -46,4 +52,18 @@ function makeListOptions(insti, shift, batch, branch) {
     return options;
 }
 
-module.exports = { makeListOptions };
+function makeBcaListOptions(insti, batch) {
+    let options = {};
+    
+    options.admission_year = batch;
+    options['$or'] = [];
+    let instiCodes = getBcaInstiCodes(insti);
+    instiCodes.forEach(instiCode => {
+        options['$or'].push({
+            insti_code: instiCode
+        })
+    });
+    return options;
+}
+
+module.exports = { makeListOptions, makeBcaListOptions };

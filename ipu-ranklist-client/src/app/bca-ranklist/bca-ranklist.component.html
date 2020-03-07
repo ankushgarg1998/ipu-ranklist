@@ -1,0 +1,11 @@
+<app-bca-modal></app-bca-modal>    
+<div class="row">
+    <div class="col-12">
+        <app-bca-listform [selections]="selection" (selectionsChanged)="newSelection = $event"></app-bca-listform>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <app-bca-table [selections]="newSelection"></app-bca-table>
+    </div>
+</div>

@@ -21,6 +21,16 @@ export class ModelService {
         });
     }
 
+    getBcaList(college, batch, sem) {
+        return this.http.get(`${this.baseUrl}/bca-list`, {
+            params: {
+                insti: college,
+                batch: batch,
+                sem: sem
+            }
+        });
+    }
+
     getStudent(enroll) {
         return this.http.get(`${this.baseUrl}/student`, {
             params: {

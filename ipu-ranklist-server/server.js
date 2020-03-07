@@ -115,7 +115,7 @@ app.get('/api/student', cacheMiddleware(500), (req, res) => {
 });
 
 // BCA RankList (Not complete yet)
-app.get('/api/bcaList', cacheMiddleware(500), (req, res) => {
+app.get('/api/bca-list', cacheMiddleware(500), (req, res) => {
     try {
         console.log(`List Hit @ ${JSON.stringify(req.query)}`);
         let insti = req.query.insti || 'MSI';

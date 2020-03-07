@@ -1,20 +1,21 @@
-import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit, OnChanges, Input, Output, EventEmitter, SimpleChanges } from '@angular/core';
 import { ModelService } from '../../shared/model.service';
-import { ListService } from '../list.service';
+import { BcaListService } from '../bca-list.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
-    selector: 'app-table',
-    templateUrl: './table.component.html',
-    styleUrls: ['./table.component.css']
+    selector: 'app-bca-table',
+    templateUrl: './bca-table.component.html',
+    styleUrls: ['./bca-table.component.css']
 })
-export class TableComponent implements OnInit, OnChanges {
-    fullList= [];
+export class BcaTableComponent implements OnInit, OnChanges {
+    fullList = [];
     list = [];
     @Input() selections;
+    @Output() rowSelectedEvent = new EventEmitter<any>();
     isDataPresent = false;
-    
-    constructor(private modelService: ModelService, private listService: ListService, private spinner: NgxSpinnerService) { }
+
+    constructor(private modelService: ModelService, private bcaListService: BcaListService, private spinner: NgxSpinnerService) { }
 
     ngOnInit() {
         // console.log(this.selections);
@@ -23,10 +24,10 @@ export class TableComponent implements OnInit, OnChanges {
     ngOnChanges(changes: SimpleChanges) {
         if(changes['selections']) {
             let keys = Object.keys(this.selections);
-            if(keys.includes('college') && keys.includes('shift') && keys.includes('batch') && keys.includes('branch') && keys.includes('sem')) {
+            if(keys.includes('college') && keys.includes('batch') && keys.includes('sem')) {
                 this.list = [];
                 this.spinner.show();
-                this.modelService.getList(this.selections['college'], this.selections['shift'], this.selections['batch'], this.selections['branch'], this.selections['sem'])
+                this.modelService.getBcaList(this.selections['college'], this.selections['batch'], this.selections['sem'])
                     .subscribe((res: any[]) => {
                         // console.log(res);
                         if(this.selections['sem'] === '0') {
@@ -94,11 +95,12 @@ export class TableComponent implements OnInit, OnChanges {
 
 
     rowClicked(index) {
-        this.listService.rowSelected(this.list[index]);
+        this.bcaListService.rowSelected(this.list[index]);
     }
 
     onSearch(e) {
         let str = e.srcElement.value.toUpperCase();
         this.list = this.fullList.filter(banda => (banda.name.includes(str) || banda.enroll_no.includes(str)));
     }
+
 }

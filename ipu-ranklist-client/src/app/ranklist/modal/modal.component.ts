@@ -10,6 +10,7 @@ import * as allSubjects from '../../shared/subjects.json';
 })
 export class ModalComponent implements OnInit {
     banda = {};
+    subjectHighest = {};
     showMinorMajor = false;
     showCreditMarks = false;
     allTheSubjects = allSubjects;
@@ -20,7 +21,9 @@ export class ModalComponent implements OnInit {
     
     ngOnInit() {
         this.listService.rowSelectedEvent
-        .subscribe(banda => {
+        .subscribe(modalData => {
+            let banda = modalData.student;
+            this.subjectHighest = modalData.metadata.subjectHighest;
             this.modalButton.nativeElement.click();
             if(banda.semester.subjects) {
                 this.overall = false;

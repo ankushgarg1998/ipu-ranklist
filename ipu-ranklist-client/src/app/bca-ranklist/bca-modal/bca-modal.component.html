@@ -19,7 +19,7 @@
                             <p><b>Marks: </b>&nbsp; {{banda['semester'].total_marks}} / {{banda['semester'].max_marks}}</p>
                         </td>
                         <td>
-                            <p><b>Percentage: </b>&nbsp; {{banda['semester'].percentage.toFixed(3)}} %</p>
+                            <p><b>Percentage: </b>&nbsp; {{banda['semester'].percentage.toFixed(3)}}%</p>
                         </td>
                     </tr>
                     <tr>
@@ -27,7 +27,7 @@
                             <p><b>Total Credit Marks: </b>&nbsp; {{banda['semester'].total_credit_marks}} / {{banda['semester'].max_credit_marks}}</p>
                         </td>
                         <td>
-                            <p><b>Credit Percentage: </b>&nbsp; {{banda['semester'].credit_percentage.toFixed(3)}} %</p>
+                            <p><b>Credit Percentage: </b>&nbsp; {{banda['semester'].credit_percentage.toFixed(3)}}%</p>
                         </td>
                     </tr>
                     <p><b>{{overall? "CGPA: ": "SGPA: "}}</b>&nbsp; {{(banda['semester'].total_grade_points / (banda['semester'].max_credits)).toFixed(3)}}</p>
@@ -51,7 +51,7 @@
                             <tr *ngFor="let subject of banda['semester']['subjects']" >
                                 <td>{{subject.name}}</td>
                                 <td *ngIf="showMinorMajor">{{subject.minor}} | {{subject.major}}</td>
-                                <td>{{subject.marks}} ({{subject.grade}}) <span class="badge badge-dark" *ngIf="subject.marks === subjectHighest[subject.paper_id]">Highest</span></td>
+                                <td>{{subject.marks}} ({{subject.grade}})</td>
                             </tr>
                         </tbody>
                     </table>

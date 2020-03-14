@@ -1,9 +1,9 @@
 import { EventEmitter } from '@angular/core';
 
-export class ListService {
+export class BcaListService {
     rowSelectedEvent = new EventEmitter<any>();
 
-    rowSelected(modalData) {
-        this.rowSelectedEvent.emit(modalData);
+    rowSelected(banda) {
+        this.rowSelectedEvent.emit(banda);
     }
 }

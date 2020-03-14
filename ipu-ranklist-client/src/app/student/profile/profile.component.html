@@ -20,23 +20,23 @@
                         <tr>
                             <td>
                                 <p><b>Marks: </b>&nbsp;
-                                    {{student['semesters'][selectedSem].total_marks}}/{{student['semesters'][selectedSem].max_marks}}
+                                    {{student['semesters'][selectedSem].total_marks}} / {{student['semesters'][selectedSem].max_marks}}
                                 </p>
                             </td>
                             <td>
                                 <p><b>Percentage: </b>&nbsp;
-                                    {{student['semesters'][selectedSem].percentage.toFixed(3)}}%</p>
+                                    {{student['semesters'][selectedSem].percentage.toFixed(3)}} %</p>
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 <p><b>Total Credit Marks: </b>&nbsp;
-                                    {{student['semesters'][selectedSem].total_credit_marks}}/{{student['semesters'][selectedSem].max_credit_marks}}
+                                    {{student['semesters'][selectedSem].total_credit_marks}} / {{student['semesters'][selectedSem].max_credit_marks}}
                                 </p>
                             </td>
                             <td>
                                 <p><b>Credit Percentage: </b>&nbsp;
-                                    {{student['semesters'][selectedSem].credit_percentage.toFixed(3)}}%</p>
+                                    {{student['semesters'][selectedSem].credit_percentage.toFixed(3)}} %</p>
                             </td>
                         </tr>
                         <tr>
@@ -84,11 +84,11 @@
                         <tbody class="tbody">
                             <tr *ngFor="let semester of student['semesters'] | slice: 1; let i=index">
                                 <td>Semester {{i+1}}</td>
-                                <td *ngIf="!showCreditMarks">{{semester.total_marks}}/{{semester.max_marks}}</td>
-                                <td *ngIf="!showCreditMarks">{{semester.percentage.toFixed(3)}}</td>
+                                <td *ngIf="!showCreditMarks">{{semester.total_marks}} / {{semester.max_marks}}</td>
+                                <td *ngIf="!showCreditMarks">{{semester.percentage.toFixed(3)}} %</td>
                                 <td *ngIf="showCreditMarks">
-                                    {{semester.total_credit_marks}}/{{semester.max_credit_marks}}</td>
-                                <td *ngIf="showCreditMarks">{{semester.credit_percentage.toFixed(3)}}</td>
+                                    {{semester.total_credit_marks}} / {{semester.max_credit_marks}}</td>
+                                <td *ngIf="showCreditMarks">{{semester.credit_percentage.toFixed(3)}} %</td>
                                 <td>{{((semester.total_grade_points / semester.max_credits) || 0).toFixed(3)}}</td>
                             </tr>
                         </tbody>

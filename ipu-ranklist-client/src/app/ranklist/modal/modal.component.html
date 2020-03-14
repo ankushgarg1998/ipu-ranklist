@@ -51,7 +51,7 @@
                             <tr *ngFor="let subject of banda['semester']['subjects']" >
                                 <td>{{subject.name}}</td>
                                 <td *ngIf="showMinorMajor">{{subject.minor}} | {{subject.major}}</td>
-                                <td>{{subject.marks}} ({{subject.grade}})</td>
+                                <td>{{subject.marks}} ({{subject.grade}}) <span class="badge badge-dark" *ngIf="subject.marks === subjectHighest[subject.paper_id]">Highest</span></td>
                             </tr>
                         </tbody>
                     </table>

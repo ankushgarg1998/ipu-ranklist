@@ -11,6 +11,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 export class TableComponent implements OnInit, OnChanges {
     fullList= [];
     list = [];
+    subjectHighest = {};
     @Input() selections;
     isDataPresent = false;
     
@@ -61,8 +62,8 @@ export class TableComponent implements OnInit, OnChanges {
                     element.semester.total_grade_points += (sem.total_grade_points || 0);
                     element.semester.max_credits += sem.max_credits;
                 });
-                element.semester.percentage = (element.semester.total_marks*100)/element.semester.max_marks;
-                element.semester.credit_percentage = (element.semester.total_credit_marks*100)/element.semester.max_credit_marks;
+                element.semester.percentage = ((element.semester.total_marks*100)/element.semester.max_marks) || 0;
+                element.semester.credit_percentage = ((element.semester.total_credit_marks*100)/element.semester.max_credit_marks) || 0;
             });
         }
         
@@ -73,6 +74,13 @@ export class TableComponent implements OnInit, OnChanges {
         });
         let rank = 1, lag = 0;
         for(let i=0; i<this.fullList.length; i++) {
+            // subject highest
+            if(!overall) {
+                this.fullList[i].semester.subjects.forEach(sub => {
+                    this.subjectHighest[sub.paper_id] = Math.max(this.subjectHighest[sub.paper_id] || 0, sub.marks);
+                });
+            }
+            // rankings
             if (i==0)
                 this.fullList[i].rank = 1;
             else if (this.fullList[i-1].semester.percentage === this.fullList[i].semester.percentage) {
@@ -85,6 +93,7 @@ export class TableComponent implements OnInit, OnChanges {
                 lag = 0;
             }
         }
+        // console.log(this.fullList);
         if(this.fullList.length > 0 && this.fullList[0].semester.max_marks === 0) {
             this.list = [];
         } else {
@@ -94,7 +103,14 @@ export class TableComponent implements OnInit, OnChanges {
 
 
     rowClicked(index) {
-        this.listService.rowSelected(this.list[index]);
+        let emittedModalData = {
+            student: this.list[index],
+            metadata: {
+                subjectHighest: this.subjectHighest
+            }
+        };
+        // this.listService.rowSelected(this.list[index]);
+        this.listService.rowSelected(emittedModalData);
     }
 
     onSearch(e) {

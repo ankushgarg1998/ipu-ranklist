@@ -1,6 +1,6 @@
 import { EventEmitter } from '@angular/core';
 
-export class ListService {
+export class EventService {
     rowSelectedEvent = new EventEmitter<any>();
 
     rowSelected(modalData) {

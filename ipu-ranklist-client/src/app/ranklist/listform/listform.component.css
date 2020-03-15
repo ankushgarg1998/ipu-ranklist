@@ -1,6 +1,19 @@
-h3, form {
+h3, form, p {
     display: flex;
     justify-content: center;
+}
+
+p {
+    text-align: center;
+    margin: 0;
+}
+
+p:last-child {
+    margin-bottom: 1rem;
+}
+
+sub {
+    line-height: 1rem;;
 }
 
 .form-group {

@@ -1,0 +1,69 @@
+<div class="row">
+    <div class="col-md-10">
+        <div *ngIf="isDataPresent">
+            <!-- <p>*Click on your name to see subject-wise marks.</p> -->
+            <div class="row form-group">
+                <div class="col-xs-6 col-md-6">
+                    <input type="text" id="search" name="search" class="form-control"
+                        placeholder="Search by Name/ Enrollment Number..." (keyup)="onSearch($event)">
+                </div>
+            </div>
+            <ul class="nav nav-tabs">
+                <li class="nav-item" (click)="changeCriteria('gpa')">
+                    <a class="nav-link" [ngClass]="{active: criteria==='gpa'}">GPA</a>
+                </li>
+                <li class="nav-item" (click)="changeCriteria('percentage')">
+                    <a class="nav-link" [ngClass]="{active: criteria==='percentage'}">%</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled">Ranking Criteria: </a>
+                </li>
+            </ul>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Enroll No.</th>
+                            <th>Name</th>
+                            <th>Marks</th>
+                            <th *ngIf="criteria === 'percentage'">Percentage</th>
+                            <th *ngIf="criteria === 'gpa'">GPA</th>
+                            <th>Rank</th>
+                        </tr>
+                    </thead>
+                    <tbody id="idhar">
+                        <tr *ngIf="list.length === 0">
+                            <td colspan="5" align="center">
+                                <h5>Sorry. No relevant data found! 🐶</h5>
+                            </td>
+                        </tr>
+                        <tr *ngFor="let item of list; let i = index" (click)="rowClicked(i)">
+                            <td>{{ item.enroll_no }}</td>
+                            <td>{{ item.name }}
+                                <span *ngIf="item.rank === 1">👑</span>
+                                <span *ngIf="item.rank === 2">🏅</span>
+                                <span *ngIf="item.rank === 3">🔥</span>
+                            </td>
+                            <td>{{ item.semester.total_marks }}/{{ item.semester.max_marks }}</td>
+                            <td *ngIf="criteria === 'percentage'">{{ (item.semester.percentage || 0).toFixed(2) }}%</td>
+                            <td *ngIf="criteria === 'gpa'">{{ item.semester.gpa.toFixed(3) }}</td>
+                            <td>{{ item.rank }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+        <div class="row">
+            <ngx-spinner bdOpacity=0 bdColor="#ffffff" size="medium" color="#333a40" type="square-loader"
+                [fullScreen]="false">
+                <p style="color: black; margin-top: 10rem;"> Fetching Data... </p>
+            </ngx-spinner>
+        </div>
+        <h5 style="margin-top: 100px;" *ngIf="!isDataPresent" align="center">Make your selections and click on Search to
+            load the Ranklist.</h5>
+    </div>
+    <div class="col-md-2">
+        <ng-adsense></ng-adsense>
+    </div>
+</div>

@@ -45,7 +45,7 @@ let cacheMiddleware = (duration) => {
 // branch and batch and compulsory query params;
 app.get('/api/list', cacheMiddleware(500), (req, res) => {
     try {
-        console.log(`List Hit @ ${JSON.stringify(req.query)}`);
+        console.log(`[B Tech] List Hit @ ${JSON.stringify(req.query)}`);
         let insti = req.query.insti || 'MSIT';
         let shift = req.query.shift || 'M';
         let batch = req.query.batch || '16';
@@ -68,7 +68,7 @@ app.get('/api/list', cacheMiddleware(500), (req, res) => {
                 }
                 return stu;
             });
-            console.log(`=> Data of ${students.length} students sent.`);
+            console.log(`=> Data of ${students.length} students sent.\n`);
             res.send(newStudents);
         }).catch((err) => {
             res.send(`[Caught]There was an error in fetching data from the database. ${err}`);
@@ -81,7 +81,6 @@ app.get('/api/list', cacheMiddleware(500), (req, res) => {
 
 app.get('/api/student', cacheMiddleware(500), (req, res) => {
     try {
-        console.log(req.query);
         if(!req.query.enroll) {
             throw Error('No Enrollment No was sent in API Request');
         }
@@ -89,19 +88,21 @@ app.get('/api/student', cacheMiddleware(500), (req, res) => {
         let courseCode = enroll.substring(6, 9);
 
         if(courseCode === '020') {
+            console.log(`[BCA] Student Hit @ ${JSON.stringify(req.query)}`);
             BcaStudent.find({
                 enroll_no: enroll
             }).then(student => {
-                // console.log(student);
+                console.log(`=> Response sent.\n`);
                 res.send(student);
             }).catch((err) => {
                 res.send(`[Caught]There was an error in fetching data from the database. ${err}`);
             });
         } else {
+            console.log(`[B Tech] Student Hit @ ${JSON.stringify(req.query)}`);
             Student.find({
                 enroll_no: enroll
             }).then(student => {
-                // console.log(student);
+                console.log(`=> Response sent.\n`);
                 res.send(student);
             }).catch((err) => {
                 res.send(`[Caught]There was an error in fetching data from the database. ${err}`);
@@ -117,13 +118,13 @@ app.get('/api/student', cacheMiddleware(500), (req, res) => {
 // BCA RankList (Not complete yet)
 app.get('/api/bca-list', cacheMiddleware(500), (req, res) => {
     try {
-        console.log(`List Hit @ ${JSON.stringify(req.query)}`);
+        console.log(`[BCA] List Hit @ ${JSON.stringify(req.query)}`);
         let insti = req.query.insti || 'MSI';
         let batch = req.query.batch || '16';
         let sem = parseInt(req.query.sem || '1');
 
         let options = helper.makeBcaListOptions(insti, batch);
-        console.log(options);
+        // console.log(options);
 
         BcaStudent.find(options).then(students => {
             let newStudents = students.map(stu => {
@@ -138,7 +139,7 @@ app.get('/api/bca-list', cacheMiddleware(500), (req, res) => {
                 }
                 return stu;
             });
-            console.log(`=> Data of ${students.length} students sent.`);
+            console.log(`=> Data of ${students.length} students sent.\n`);
             res.send(newStudents);
         }).catch((err) => {
             res.send(`[Caught]There was an error in fetching data from the database. ${err}`);

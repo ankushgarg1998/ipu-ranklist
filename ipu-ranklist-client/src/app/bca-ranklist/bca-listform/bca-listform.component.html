@@ -1,5 +1,8 @@
 <h3>BCA Ranklist</h3>
 <br>
+<div class="selections">
+    <p><sub>College: {{ fetchCollegeName(selections.college) }}</sub></p>
+</div>
 <form class="flexbox" class="header-form" #f="ngForm">
   <div class="form-group">
       <select name="college" id="college" class="form-control" [(ngModel)]="selections.college" required>    

@@ -1,3 +1,7 @@
+.meme > img {
+    height: 100px;
+}
+
 .jumbotron {
     padding: 2rem 2rem;
 }
@@ -48,4 +52,10 @@ tbody > tr > td {
 
 tbody > tr > td:first-child {
     white-space: pre-wrap;
+}
+
+@media(max-width: 786px) {
+    .meme {
+        text-align: center;
+    }
 }

@@ -1,6 +1,7 @@
 # Configs
 config.json
 todos
+.DS_Store
 
 
 # Logs

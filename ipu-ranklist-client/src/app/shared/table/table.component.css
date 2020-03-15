@@ -1,25 +1,27 @@
-p {
-    margin-bottom: 0;
+.nav-tabs {
+    flex-direction: row-reverse;
 }
-.table-responsive {
-    overflow: visible;
+
+.nav-link {
+    cursor: pointer;
 }
-.tbody {
-    overflow: visible;
-}
-.tbody > tr {
+
+tbody > tr {
     transition: all 0.2s linear;
     -o-transition: all .2s linear;
     -moz-transition: all .2s linear;
     -webkit-transition: all .2s linear;
 }
-.tbody tr:nth-of-type(even) {
+
+tbody tr:nth-of-type(even) {
     background-color: white;
 }
-.tbody tr:nth-of-type(odd) {
+tbody tr:nth-of-type(odd) {
     background-color: rgb(240, 240, 240);
 }
-.tbody > tr:hover {
+
+
+tbody > tr:hover {
     transform: scale(1.05);
     transition-duration: .2s;
     cursor: pointer;
@@ -27,15 +29,13 @@ p {
     font-weight: bold;
 }
 
-.modal-data tr td {
-    padding-right: 10px;
+tbody {
+    overflow: visible;
 }
 
-tbody > tr > td {
-    width: auto;
-    white-space: nowrap;
+.table-responsive {
+    overflow: visible;
 }
 
-tbody > tr > td:first-child {
-    white-space: pre-wrap;
+@media(max-width: 786px) {
 }

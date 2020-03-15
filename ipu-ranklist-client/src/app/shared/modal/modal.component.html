@@ -1,0 +1,122 @@
+<button id="modal-button" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"
+    #modalButton hidden>Open Modal</button>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Student Marksheet</h4>
+                <button type="button" class="close" data-dismiss="modal" #closeButton>&times;</button>
+            </div>
+            <div class="modal-body" *ngIf="student['semester']">
+                <p><b>Enrollment Number: </b>&nbsp; {{student.enroll_no}}</p>
+                <p>
+                    <b>Name: </b>
+                    &nbsp;
+                    <a (click)="closeButton.click()" [routerLink]="['/student', student.enroll_no]"
+                        title="View {{student.name}}'s Full Profile">
+                        {{student.name}}
+                    </a>
+                    <span *ngIf="student.rank === 1">👑</span>
+                    <span *ngIf="student.rank === 2">🏅</span>
+                    <span *ngIf="student.rank === 3">🔥</span>
+                </p>
+                <table class="modal-data">
+                    <tr>
+                        <td>
+                            <p><b>Marks: </b>&nbsp; {{student['semester'].total_marks}} /
+                                {{student['semester'].max_marks}}
+                            </p>
+                        </td>
+                        <td>
+                            <p><b>Percentage: </b>&nbsp; {{student['semester'].percentage.toFixed(3)}} %</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p><b>Total Credit Marks: </b>&nbsp; {{student['semester'].total_credit_marks}} /
+                                {{student['semester'].max_credit_marks}}</p>
+                        </td>
+                        <td>
+                            <p><b>Credit Percentage: </b>&nbsp; {{student['semester'].credit_percentage.toFixed(3)}} %
+                            </p>
+                        </td>
+                    </tr>
+                    <p><b>{{overall? "CGPA: ": "SGPA: "}}</b>&nbsp;
+                        {{(student['semester'].total_grade_points / (student['semester'].max_credits)).toFixed(3)}}</p>
+                </table>
+                <p><b>Rank: </b>&nbsp; #{{student.rank}}</p>
+                <hr>
+
+                <div *ngIf="!overall">
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1"
+                            [(ngModel)]="showInternalExternal">
+                        <label class="form-check-label" for="exampleCheck1">&nbsp; Show Internal/External Marks</label>
+                    </div>
+                    <br>
+                    <table class="table table-striped table-sm">
+                        <thead class="thead-dark">
+                            <th>Subject</th>
+                            <th *ngIf="showInternalExternal" style="white-space: nowrap;">Int. | Ext.</th>
+                            <th>Marks</th>
+                        </thead>
+                        <tbody class="tbody">
+                            <tr *ngFor="let subject of student['semester']['subjects']">
+                                <td>{{subject.name}}</td>
+                                <td *ngIf="showInternalExternal">{{subject.minor}} | {{subject.major}}</td>
+                                <td>{{subject.marks}} ({{subject.grade}})
+                                    <span class="badge badge-dark"
+                                        *ngIf="subject.marks === subjectBest[subject.paper_id]">
+                                        Highest
+                                    </span>
+                                    <span class="badge badge-danger" *ngIf="subject.marks < 40">
+                                        Backlog
+                                    </span>
+                                    <span class="badge badge-dark" *ngIf="subject.grade.endsWith('*')">
+                                        Reappear
+                                    </span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div *ngIf="overall">
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1"
+                            [(ngModel)]="showCreditMarks">
+                        <label class="form-check-label" for="exampleCheck1">&nbsp; Show Credit Marks and
+                            Percentage</label>
+                    </div>
+                    <br>
+                    <table class="table table-striped table-sm">
+                        <thead class="thead-dark">
+                            <th>Semester</th>
+                            <th>Marks</th>
+                            <th>Percentage</th>
+                            <th>SGPA</th>
+                        </thead>
+                        <tbody class="tbody">
+                            <tr *ngFor="let sem of student['semesters']; let i = index">
+                                <td>Sem {{ (i+1) }}</td>
+                                <td *ngIf="!showCreditMarks">{{sem.total_marks}} / {{sem.max_marks}}</td>
+                                <td *ngIf="!showCreditMarks">{{sem.percentage.toFixed(3)}} %</td>
+                                <td *ngIf="showCreditMarks">{{sem.total_credit_marks}} / {{sem.max_credit_marks}}</td>
+                                <td *ngIf="showCreditMarks">{{sem.credit_percentage.toFixed(3)}} %</td>
+                                <td>{{((sem.total_grade_points / sem.max_credits) || 0).toFixed(3)}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,7 +1,8 @@
-import { Component, OnInit, Input, ViewChild, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 import * as allInstis from '../../shared/institutes-bca.json';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-bca-listform',
@@ -14,23 +15,19 @@ export class BcaListformComponent implements OnInit {
     instis = [];
     @Input() selections: any;
     @ViewChild('f') ngForm: NgForm;
-    @Output() selectionsChanged = new EventEmitter<object>();
 
-    constructor() { }
+    constructor(private router: Router) { }
 
     ngOnInit() {
         this.instis = allInstis['default'];
-        // this.ngForm.form.valueChanges.subscribe(x => {
-        //     console.log('a', x);
-        //     console.log('b', this.ngForm.value);
-        //     this.selectionsChanged.emit(x);
-        // });
     }
 
     onSearch() {
-        // console.log('clicked');
-        // console.log(this.ngForm.value);
-        this.selectionsChanged.emit(this.ngForm.value);
+        this.router.navigate(['/bca-ranklist'], {queryParams: this.ngForm.value});
+    }
+
+    fetchCollegeName(abbrev) {
+        return this.instis.filter(insti => insti.abbrev === abbrev)[0].name;
     }
 
 }

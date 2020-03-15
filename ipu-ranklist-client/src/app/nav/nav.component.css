@@ -1,0 +1,7 @@
+li {
+    margin: 0 10px;
+}
+
+.badge {
+    transform: scale(0.8);
+}

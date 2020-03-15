@@ -1,3 +1,12 @@
 ins {
     background-color: #ccc !important;
 }
+
+.link {
+    color: #000;
+    font-weight: bolder;
+}
+
+img {
+    width: 100%;
+}

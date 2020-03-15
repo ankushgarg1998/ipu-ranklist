@@ -113,7 +113,10 @@ export class TableComponent implements OnInit {
 
     setGpa(res) {
         res.forEach(element => {
-            element.semester.gpa = element.semester.total_grade_points / element.semester.max_credits;
+            if(element.semester.max_credits === 0 || element.semester.total_grade_points === 0)
+                element.semester.gpa = 0;
+            else
+                element.semester.gpa = element.semester.total_grade_points / element.semester.max_credits;
         });
     }
 

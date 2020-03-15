@@ -1,8 +1,8 @@
 <h3>B.Tech. Ranklist</h3>
 <br>
 <div class="selections">
-    <p><sub>College: {{ fetchCollegeName(selections.college) }}</sub></p>
-    <p><sub>Branch: {{ fetchBranchName(selections.branch).toUpperCase() }}</sub></p>
+    <p><sub>College: {{ fetchCollegeName(ngForm.value.college) }}</sub></p>
+    <p><sub>Branch: {{ fetchBranchName(ngForm.value.branch).toUpperCase() }}</sub></p>
 </div>
 <form class="flexbox" class="header-form" #f="ngForm">
     <div class="form-group">

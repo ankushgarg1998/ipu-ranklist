@@ -37,7 +37,7 @@ So this is a minimalist result website I'm making for our University students, i
 ## Planned Features
 - An overall section for institutes, that shows a ranklist which includes students from all the colleges of a particular branch.
 - Ranks in the profile section.
-- Integration of BBA courses.
+- Integration of BBA course.
 
 <hr>
 

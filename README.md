@@ -23,6 +23,7 @@ So this is a minimalist result website I'm making for our University students, i
   - **College** *(Ex: MSIT, MAIT, BVCOE...)*, 
   - **Shift** *(Ex: Morning, Evening, Both)*, 
   - **Batch** *(Ex: 2016-20, 2017-21...)*, 
+  - **Course** *(Ex: BTech and BCA)*,
   - **Branch** *(Ex: CSE, IT, ECE, EEE, EE, MAE, ME, MET, TE, PE...)* and
   - **Semester** *(Ex: Sem1, Sem2, Sem3...)*
 - Subject-wise marks when clicked on any name in the ranklist.
@@ -36,7 +37,7 @@ So this is a minimalist result website I'm making for our University students, i
 ## Planned Features
 - An overall section for institutes, that shows a ranklist which includes students from all the colleges of a particular branch.
 - Ranks in the profile section.
-- Integration of BCA and BBA courses.
+- Integration of BBA courses.
 
 <hr>
 

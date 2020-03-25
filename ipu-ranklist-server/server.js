@@ -13,6 +13,7 @@ const institutes = require('./data/institutes.json')
 
 var { Student } = require('./models/student');
 var { BcaStudent } = require('./models/bcaStudent');
+var { BbaStudent } = require('./models/bbaStudent');
 var helper = require('./helpers/helper');
 
 var app = express();
@@ -97,7 +98,17 @@ app.get('/api/student', cacheMiddleware(500), (req, res) => {
             }).catch((err) => {
                 res.send(`[Caught]There was an error in fetching data from the database. ${err}`);
             });
-        } else {
+        } else if (courseCode === '017' || courseCode === '018' || courseCode === '019') {
+            console.log(`[BBA] Student Hit @ ${JSON.stringify(req.query)}`);
+            BbaStudent.find({
+                enroll_no: enroll
+            }).then(student => {
+                console.log(`=> Response sent.\n`);
+                res.send(student);
+            }).catch((err) => {
+                res.send(`[Caught]There was an error in fetching data from the database. ${err}`);
+            });
+        }else {
             console.log(`[B Tech] Student Hit @ ${JSON.stringify(req.query)}`);
             Student.find({
                 enroll_no: enroll
@@ -115,7 +126,7 @@ app.get('/api/student', cacheMiddleware(500), (req, res) => {
     }
 });
 
-// BCA RankList (Not complete yet)
+// BCA RankList
 app.get('/api/bca-list', cacheMiddleware(500), (req, res) => {
     try {
         console.log(`[BCA] List Hit @ ${JSON.stringify(req.query)}`);
@@ -127,6 +138,42 @@ app.get('/api/bca-list', cacheMiddleware(500), (req, res) => {
         // console.log(options);
 
         BcaStudent.find(options).then(students => {
+            let newStudents = students.map(stu => {
+                stu = stu.toObject();
+                if(sem === 0) {
+                    stu.semesters.forEach(sem => {
+                        sem.subjects = [];
+                    })
+                } else {
+                    stu.semester = stu.semesters[sem-1];
+                    stu.semesters = null;
+                }
+                return stu;
+            });
+            console.log(`=> Data of ${students.length} students sent.\n`);
+            res.send(newStudents);
+        }).catch((err) => {
+            res.send(`[Caught]There was an error in fetching data from the database. ${err}`);
+        });
+    } catch (err) {
+        console.log('SERVER ERROR', err);
+        res.status(500).send(err);
+    }
+});
+
+// BBA RankList (Not complete yet)
+app.get('/api/bba-list', cacheMiddleware(500), (req, res) => {
+    try {
+        console.log(`[BBA] List Hit @ ${JSON.stringify(req.query)}`);
+        let insti = req.query.insti || 'MSI';
+        let batch = req.query.batch || '16';
+        let branch = req.query.branch || 'G';
+        let sem = parseInt(req.query.sem || '1');
+
+        let options = helper.makeBbaListOptions(insti, batch, branch);
+        console.log(options);
+
+        BbaStudent.find(options).then(students => {
             let newStudents = students.map(stu => {
                 stu = stu.toObject();
                 if(sem === 0) {

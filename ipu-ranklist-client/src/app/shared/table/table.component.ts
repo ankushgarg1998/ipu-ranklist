@@ -37,6 +37,10 @@ export class TableComponent implements OnInit {
                     this.router.navigate(['/ranklist']);
                 } else if (this.course === 'bca') {
                     this.router.navigate(['/bca-ranklist']);
+                } else if (this.course === 'bba') {
+                    this.router.navigate(['/bba-ranklist']);
+                } else {
+                    this.router.navigate(['/']);
                 }
             }
         }
@@ -48,6 +52,8 @@ export class TableComponent implements OnInit {
             return (keys.includes('college') && keys.includes('shift') && keys.includes('batch') && keys.includes('branch') && keys.includes('sem'));
         } else if (this.course === 'bca') {
             return (keys.includes('college') && keys.includes('batch') && keys.includes('sem'));
+        } else if (this.course === 'bba') {
+            return (keys.includes('college') && keys.includes('batch') && keys.includes('branch') && keys.includes('sem'));
         }
         return false;
     }
@@ -73,6 +79,15 @@ export class TableComponent implements OnInit {
                     this.spinner.hide();
                     this.isDataPresent = true;
                 });
+        } else if (this.course === 'bba') {
+            this.modelService.getBbaList(this.selections['college'], this.selections['batch'], this.selections['branch'], this.selections['sem'])
+            .subscribe((res: any[]) => {
+                // console.log(res);
+                this.overall = (this.selections['sem'] === '0');
+                this.setListWithRanking(res);
+                this.spinner.hide();
+                this.isDataPresent = true;
+            });
         }
     }
 

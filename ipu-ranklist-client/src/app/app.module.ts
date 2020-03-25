@@ -24,11 +24,14 @@ import { StudentComponent } from './student/student.component';
 
 import { ModelService } from './shared/model.service';
 import { EventService } from './shared/event.service';
+import { BbaRanklistComponent } from './bba-ranklist/bba-ranklist.component';
+import { BbaListformComponent } from './bba-ranklist/bba-listform/bba-listform.component';
 
 const appRoutes: Routes = [
     { path: '', component: HomeComponent },
     { path: 'ranklist', component: RanklistComponent },
     { path: 'bca-ranklist', component: BcaRanklistComponent },
+    { path: 'bba-ranklist', component: BbaRanklistComponent },
     { path: 'student', component: StudentComponent },
     { path: 'student/:enroll', component: ProfileComponent }
 ];
@@ -47,7 +50,9 @@ const appRoutes: Routes = [
         BcaRanklistComponent,
         BcaListformComponent,
         ModalComponent,
-        TableComponent
+        TableComponent,
+        BbaRanklistComponent,
+        BbaListformComponent
     ],
     imports: [
         BrowserModule,

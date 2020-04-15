@@ -171,7 +171,7 @@ app.get('/api/bba-list', cacheMiddleware(500), (req, res) => {
         let sem = parseInt(req.query.sem || '1');
 
         let options = helper.makeBbaListOptions(insti, batch, branch);
-        console.log(options);
+        // console.log(options);
 
         BbaStudent.find(options).then(students => {
             let newStudents = students.map(stu => {

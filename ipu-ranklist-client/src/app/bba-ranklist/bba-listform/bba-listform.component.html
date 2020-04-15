@@ -1,0 +1,50 @@
+<h3>BBA Ranklist</h3>
+<br>
+<div class="selections">
+    <p><sub>College: {{ fetchCollegeName(ngForm.value.college) }}</sub></p>
+    <p><sub>Course: BBA ({{ fetchBranchName(ngForm.value.branch) }})</sub></p>
+</div>
+<form class="flexbox" class="header-form" #f="ngForm">
+    <div class="form-group">
+        <select name="college" id="college" class="form-control" [(ngModel)]="selections.college" required>
+            <option *ngFor="let insti of instis" [title]="insti.name" [value]="insti.abbrev">{{ insti.abbrev }}</option>
+            <option title="All Colleges" value="0" disabled>All Colleges</option>
+        </select>
+    </div>
+    <!-- <div class="form-group">
+      <select name="shift" id="shift" class="form-control" [(ngModel)]="selections.shift" required>
+          <option value="M">Morning</option>
+          <option value="E">Evening</option>
+          <option value="0">Both</option>
+      </select>
+  </div> -->
+    <div class="form-group">
+        <select name="batch" id="batch" class="form-control" [(ngModel)]="selections.batch" required>
+            <option value=15>2015 - 2018</option>
+            <option value=16>2016 - 2019</option>
+            <option value=17>2017 - 2020</option>
+            <option value=18>2018 - 2021</option>
+            <option value=19 disabled>2019 - 2022</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <select name="branch" id="branch" class="form-control" [(ngModel)]="selections.branch" required>
+            <option value="G">G</option>
+            <option value="B&I">B & I</option>
+            <option value="CAM">CAM</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <select name="sem" id="sem" class="form-control" [(ngModel)]="selections.sem" required>
+            <option value="0">Overall</option>
+            <option value="1">Sem 1</option>
+            <option value="2">Sem 2</option>
+            <option value="3">Sem 3</option>
+            <option value="4">Sem 4</option>
+            <option value="5">Sem 5</option>
+            <option value="6">Sem 6</option>
+        </select>
+    </div>
+    <button class="btn btn-dark" style="color: white;" (click)="onSearch()">Search</button>
+</form>
+<hr>

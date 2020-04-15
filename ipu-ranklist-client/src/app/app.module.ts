@@ -3,8 +3,10 @@ import { Routes, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { NgxSpinnerModule } from "ngx-spinner";
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { AdsenseModule } from "ng2-adsense";
 import { LottieAnimationViewModule } from 'ng-lottie';
 
@@ -59,6 +61,8 @@ const appRoutes: Routes = [
         FormsModule,
         HttpClientModule,
         NgxSpinnerModule,
+        NgxChartsModule,
+        BrowserAnimationsModule,
         LottieAnimationViewModule.forRoot(),
         RouterModule.forRoot(appRoutes),
         AdsenseModule.forRoot({

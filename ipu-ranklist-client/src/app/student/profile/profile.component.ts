@@ -26,6 +26,46 @@ export class ProfileComponent implements OnInit {
     memeIndex = Math.floor((Math.random() * (this.totalMemes))) + 1;
     memeSrc = '';
 
+    semesterChart = {
+        showXAxis: true,
+        showYAxis: true,
+        showXAxisLabel: true,
+        showYAxisLabel: true,
+        xAxisLabel: 'Marks',
+        yAxisLabel: 'Subject',
+        showDataLabel: true,
+        showLegend: false,
+        legendPosition: 'right',
+        data: []
+    };
+    overallPercentageChart = {
+        showXAxis: true,
+        showYAxis: true,
+        showXAxisLabel: true,
+        showYAxisLabel: true,
+        xAxisLabel: 'Semester',
+        yAxisLabel: 'Percentage (%)',
+        showDataLabel: true,
+        showLegend: false,
+        legendPosition: 'right',
+        autoScale: true,
+        data: []
+    };
+    overallGpaChart = {
+        showXAxis: true,
+        showYAxis: true,
+        showXAxisLabel: true,
+        showYAxisLabel: true,
+        xAxisLabel: 'Semester',
+        yAxisLabel: 'Semester GPA',
+        showDataLabel: true,
+        showLegend: false,
+        legendPosition: 'right',
+        autoScale: true,
+        data: []
+    };
+
+
     constructor(private route: ActivatedRoute, private modelService: ModelService, private spinner: NgxSpinnerService) { }
 
     ngOnInit() {
@@ -49,6 +89,7 @@ export class ProfileComponent implements OnInit {
                 } else {
                     this.validStudent = 1;
                     this.setOverallSemesterInResponse(res);
+                    this.setSemesterChartData(0);
                 }
             })
     }
@@ -97,5 +138,65 @@ export class ProfileComponent implements OnInit {
 
     tabChange(sem) {
         this.selectedSem = sem;
+        this.setSemesterChartData(sem);
+    }
+
+    setSemesterChartData(sem) {
+        if(sem === 0) {
+            let percentageChartData = [
+                {
+                    'name': 'Percentage',
+                    'series': []
+                },
+                {
+                    'name': 'Credit Percentage',
+                    'series': []
+                }
+            ];
+            let gpaChartData = [
+                {
+                    'name': 'SGPA',
+                    'series': []
+                }
+            ];
+            this.student['semesters'].forEach((sem, index) => {
+                if(index != 0 && sem.percentage !== 0) {
+                    let dataElementPercentage = {
+                        'name': `${sem.semester_no}`,
+                        'value': sem.percentage
+                    };
+                    let dataElementCreditPercentage = {
+                        'name': `${sem.semester_no}`,
+                        'value': sem.credit_percentage
+                    };
+                    let dataElementGpa = {
+                        'name': `${sem.semester_no}`,
+                        'value': ((sem.total_grade_points / sem.max_credits) || 0)
+                    };
+                    percentageChartData[0].series.push(dataElementPercentage);
+                    percentageChartData[1].series.push(dataElementCreditPercentage);
+                    gpaChartData[0].series.push(dataElementGpa);
+                }
+            });
+            this.overallPercentageChart.data = percentageChartData;
+            this.overallGpaChart.data = gpaChartData;
+        } else {
+            let chartData = [];
+            this.student['semesters'][sem]['subjects'].forEach(subj => {
+                let dataElement = {
+                    "name": `${subj.name.match(/-|\b(\w)/g).join('')}`,
+                    "series": [{
+                        "name": "Internal",
+                        "value": subj.minor
+                    },
+                    {
+                        "name": "External",
+                        "value": subj.major
+                    }]
+                };
+                chartData.push(dataElement);
+            });
+            this.semesterChart.data = chartData;
+        }
     }
 }

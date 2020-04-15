@@ -1,0 +1,17 @@
+[
+    {
+        "branch": "B&I",
+        "name": "Banking and Insurance",
+        "code": "018"
+    },
+    {
+        "branch": "CAM",
+        "name": "Computer Aided Management",
+        "code": "019"
+    },
+    {
+        "branch": "G",
+        "name": "General",
+        "code": "017"
+    }
+]

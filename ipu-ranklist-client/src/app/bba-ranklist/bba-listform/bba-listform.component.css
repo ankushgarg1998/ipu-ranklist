@@ -1,0 +1,52 @@
+h3, form, p {
+    display: flex;
+    justify-content: center;
+}
+
+p {
+    text-align: center;
+    margin-bottom: 0;
+}
+
+p:last-child {
+    margin-bottom: 1rem;
+}
+
+sub {
+    line-height: 1rem;;
+}
+
+.form-group {
+    min-width: auto;
+    /* width: 15%; */
+    margin-right: 2%;
+    margin-bottom: 0;
+}
+
+.header-form {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.btn {
+    width: 150px;
+}
+
+
+@media(max-width: 786px) {
+    .form-group {
+        width: 30%;
+        margin-right: 3%;
+        margin-top: 3%;
+    }
+    .header-form {
+        justify-content: space-around;
+    }
+    .form-control {
+        font-size: 0.9rem;
+    }
+    .btn {
+        width: 100%;
+        margin-top: 1rem;
+    }
+}

@@ -1,0 +1,212 @@
+[
+    {
+        "name": "BANARSIDAS CHANDIWALA INSTITUTE OF PROFESSIONAL STUDIES",
+        "abbrev": "BCIPS",
+        "codes": ["505", "612"]
+    },
+    {
+        "name": "BHAGWAN PARSHURAM INSTITUTE OF TECHNOLOGY",
+        "abbrev": "BPIT",
+        "codes": ["208"]
+    },
+    {
+        "name": "BHAI PARMANAND INSTITUTE OF BUSINESS STUDIES",
+        "abbrev": "BPIBS",
+        "codes": ["114"]
+    },
+    {
+        "name": "BLS INSTITUTE OF TECHNOLOGY & MANAGEMENT",
+        "abbrev": "BLSITM",
+        "codes": ["205"]
+    },
+    {
+        "name": "BM INSTITUTE OF ENGINEERING & TECHNOLOGY",
+        "abbrev": "BMIET",
+        "codes": ["553"]
+    },
+    {
+        "name": "CHANDERPRABHU JAIN COLLEGE OF HIGHER STUDIES & SCHOOL OF LAW",
+        "abbrev": "CPJCHS",
+        "codes": ["242", "215"]
+    },
+    {
+        "name": "DELHI INSTITUTE OF ADVANCED STUDIES",
+        "abbrev": "DIAS",
+        "codes": ["123"]
+    },
+    {
+        "name": "DELHI INSTITUTE OF RURAL DEVELOPMENT",
+        "abbrev": "DIRD",
+        "codes": ["900", "124"]
+    },
+    {
+        "name": "DELHI METROPOLITAN EDUCATION",
+        "abbrev": "DME",
+        "codes": ["912", "511"]
+    },
+    {
+        "name": "DELHI SCHOOL OF PROFESSIONAL STUDIES AND RESEARCH",
+        "abbrev": "DSPSR",
+        "codes": ["217", "125"]
+    },
+    {
+        "name": "DR. AKHILESH DAS GUPTA INSTITUTE OF TECHNOLOGY AND MANAGEMENT",
+        "abbrev": "ADGITM",
+        "codes": ["156"]
+    },
+    {
+        "name": "FAIRFIELD INSTITUTE OF MANAGEMENT & TECHNOLOGY",
+        "abbrev": "FIMT",
+        "codes": ["514", "901"]
+    },
+    {
+        "name": "GITARATTAN INTERNATIONAL BUSINESS SCHOOL",
+        "abbrev": "GIBS",
+        "codes": ["191"]
+    },
+    {
+        "name": "IDEAL INSTITUTE OF MANAGEMENT AND TECHNOLOGY",
+        "abbrev": "IIMT",
+        "codes": ["210", "134"]
+    },
+    {
+        "name": "INSTITUTE OF INFORMATION TECHNOLOGY AND MANAGEMENT",
+        "abbrev": "IITM",
+        "codes": ["211", "137"]
+    },
+    {
+        "name": "INSTITUTE OF INNOVATION IN TECHNOLOGY & MANAGEMENT",
+        "abbrev": "IITM2",
+        "codes": ["244", "903"]
+    },
+    {
+        "name": "JAGAN INSTITUTE OF MANAGEMENT STUDIES, ROHINI",
+        "abbrev": "JIMS-R",
+        "codes": ["140", "504"]
+    },
+    {
+        "name": "JAGANNATH INTERNATIONAL MANAGEMENT SCHOOL, KALKAJI",
+        "abbrev": "JIMS-K",
+        "codes": ["245", "141"]
+    },
+    {
+        "name": "JAGANNATH INTERNATIONAL MANAGEMENT SCHOOL, VASANT KUNJ",
+        "abbrev": "JIMS-VK",
+        "codes": ["214", "142"]
+    },
+    {
+        "name": "JIMS ENGINEERING MANAGEMENT TECHNICAL CAMPUS, GREATER NOIDA",
+        "abbrev": "JEMTEC",
+        "codes": ["255"]
+    },
+    {
+        "name": "KAMAL INSTITUTE OF HIGHER EDUCATION AND ADVANCED TECHNOLOGY",
+        "abbrev": "KIHEAT",
+        "codes": ["967"]
+    },
+    {
+        "name": "KASTURI RAM COLLEGE OF HIGHER EDUCATION",
+        "abbrev": "KRCHE",
+        "codes": ["515", "193"]
+    },
+    {
+        "name": "KCC INSTITUTE OF LEGAL AND HIGHER EDUCATION",
+        "abbrev": "KCCILHE",
+        "codes": ["274"]
+    },
+    {
+        "name": "LINGAYAS LALITA DEVI INSTITUTE OF MANAGEMENT AND SCIENCES",
+        "abbrev": "LLDIMS",
+        "codes": ["192"]
+    },
+    {
+        "name": "MAHARAJA AGRASEN INSTITUTE OF MANAGEMENT STUDIES",
+        "abbrev": "MAIMS",
+        "codes": ["611", "147"]
+    },
+    {
+        "name": "MAHARAJA SURAJMAL INSTITUTE",
+        "abbrev": "MSI",
+        "codes": ["212", "149"]
+    },
+    {
+        "name": "MAHAVIR SWAMI INSTITUTE OF TECHNOLOGY",
+        "abbrev": "MSIT-SNP",
+        "codes": ["551"]
+    },
+    {
+        "name": "MANAGEMENT EDUCATION & RESEARCH INSTITUTE",
+        "abbrev": "MERI",
+        "codes": ["151"]
+    },
+    {
+        "name": "MEERA BAI INSTITUTE OF TECHNOLOGY",
+        "abbrev": "MBIT",
+        "codes": ["219", "906"]
+    },
+    {
+        "name": "NEW DELHI INSTITUTE OF MANAGEMENT",
+        "abbrev": "NDIM",
+        "codes": ["506", "155"]
+    },
+    {
+        "name": "NORTHERN INDIA ENGINEERING COLLEGE",
+        "abbrev": "NIEC",
+        "codes": ["156"]
+    },
+    {
+        "name": "RUKMINI DEVI INSTITUTE OF ADVANCED  STUDIES",
+        "abbrev": "RDIAS",
+        "codes": ["803", "159"]
+    },
+    {
+        "name": "SANT HARI DASS COLLEGE OF HIGHER EDUCATION",
+        "abbrev": "SHDCHE",
+        "codes": ["969"]
+    },
+    {
+        "name": "SGIT SCHOOL OF MANAGEMENT, GHAZIABAD",
+        "abbrev": "SGIT",
+        "codes": ["247"]
+    },
+    {
+        "name": "SHREE GANPATI EDUCATIONAL SOCIETY",
+        "abbrev": "SGES",
+        "codes": ["247"]
+    },
+    {
+        "name": "SIRIFORT COLLEGE OF COMPUTER TECHNOLOGY & MANAGEMENT",
+        "abbrev": "SCCTM",
+        "codes": ["167"]
+    },
+    {
+        "name": "SIRIFORT INSTITUTE OF MANAGEMENT STUDIES",
+        "abbrev": "SIMS",
+        "codes": ["243", "167"]
+    },
+    {
+        "name": "SRI GURU TEGH BAHADUR INSTITUTE OF MANAGEMENT AND INFORMATION TECHNOLOGY",
+        "abbrev": "SGTBIMIT",
+        "codes": ["911", "902"]
+    },
+    {
+        "name": "TECNIA INSTITUTE OF ADVANCED STUDIES",
+        "abbrev": "TIAS",
+        "codes": ["213", "804", "170"]
+    },
+    {
+        "name": "TRINITY INSTITUTE OF PROFESSIONAL STUDIES",
+        "abbrev": "TIPS",
+        "codes": ["240", "206"]
+    },
+    {
+        "name": "UNITED COLLEGE OF EDUCATION",
+        "abbrev": "UCE",
+        "codes": ["271"]
+    },
+    {
+        "name": "VIVEKANANDA INSTITUTE OF PROFESSIONAL STUDIES",
+        "abbrev": "VIPS",
+        "codes": ["298", "177", "198"]
+    }
+]

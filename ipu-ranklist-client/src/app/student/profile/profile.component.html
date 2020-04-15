@@ -58,6 +58,62 @@
                             </table>
                             <!-- <p><b>Rank: </b>&nbsp; #{{student.rank}}</p> -->
                             <hr>
+                            <div class="row" style="height: 500px;" *ngIf="selectedSem !== 0">
+                                <!-- <div class="col-sm-12"> -->
+                                    <ngx-charts-bar-horizontal-stacked 
+                                        [xAxis]="semesterChart.showXAxis" 
+                                        [yAxis]="semesterChart.showYAxis"
+                                        [showXAxisLabel]="semesterChart.showXAxisLabel" 
+                                        [showYAxisLabel]="semesterChart.showYAxisLabel"
+                                        [xAxisLabel]="semesterChart.xAxisLabel"
+                                        [yAxisLabel]="semesterChart.yAxisLabel" 
+                                        [showDataLabel]="semesterChart.showDataLabel"
+                                        [legend]="semesterChart.showLegend"
+                                        [legendPosition]="semesterChart.legendPosition"
+                                        [roundDomains]="semesterChart.true"
+                                        [view]=""
+                                        [results]="semesterChart.data">
+                                    </ngx-charts-bar-horizontal-stacked>
+                                <!-- </div> -->
+                            </div>
+                            <div class="row" style="height: 250px;" *ngIf="selectedSem === 0">
+                                <!-- <div class="col-sm-12"> -->
+                                    <ngx-charts-line-chart 
+                                        [xAxis]="overallPercentageChart.showXAxis" 
+                                        [yAxis]="overallPercentageChart.showYAxis"
+                                        [showXAxisLabel]="overallPercentageChart.showXAxisLabel" 
+                                        [showYAxisLabel]="overallPercentageChart.showYAxisLabel"
+                                        [xAxisLabel]="overallPercentageChart.xAxisLabel"
+                                        [yAxisLabel]="overallPercentageChart.yAxisLabel" 
+                                        [legend]="overallPercentageChart.showLegend"
+                                        [legendPosition]="overallPercentageChart.legendPosition"
+                                        [roundDomains]="overallPercentageChart.true"
+                                        [view]=""
+                                        [autoScale]="overallPercentageChart.autoScale"
+                                        [results]="overallPercentageChart.data">
+                                    </ngx-charts-line-chart>
+                                <!-- </div> -->
+                            </div>
+                            <div class="row" style="height: 250px;" *ngIf="selectedSem === 0">
+                                <!-- <div class="col-sm-12"> -->
+                                    <ngx-charts-line-chart 
+                                        [xAxis]="overallGpaChart.showXAxis" 
+                                        [yAxis]="overallGpaChart.showYAxis"
+                                        [showXAxisLabel]="overallGpaChart.showXAxisLabel" 
+                                        [showYAxisLabel]="overallGpaChart.showYAxisLabel"
+                                        [xAxisLabel]="overallGpaChart.xAxisLabel"
+                                        [yAxisLabel]="overallGpaChart.yAxisLabel" 
+                                        [legend]="overallGpaChart.showLegend"
+                                        [legendPosition]="overallGpaChart.legendPosition"
+                                        [roundDomains]="overallGpaChart.true"
+                                        [view]=""
+                                        [results]="overallGpaChart.data"
+                                        [autoScale]=true>
+                                    </ngx-charts-line-chart>
+                                <!-- </div> -->
+                            </div>
+
+                            <br>
                             <div class="form-check" *ngIf="selectedSem !== 0">
                                 <input type="checkbox" class="form-check-input" id="exampleCheck1"
                                     [(ngModel)]="showMinorMajor">

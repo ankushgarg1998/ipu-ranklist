@@ -3,8 +3,10 @@ import { Routes, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { NgxSpinnerModule } from "ngx-spinner";
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { AdsenseModule } from "ng2-adsense";
 import { LottieAnimationViewModule } from 'ng-lottie';
 
@@ -24,11 +26,14 @@ import { StudentComponent } from './student/student.component';
 
 import { ModelService } from './shared/model.service';
 import { EventService } from './shared/event.service';
+import { BbaRanklistComponent } from './bba-ranklist/bba-ranklist.component';
+import { BbaListformComponent } from './bba-ranklist/bba-listform/bba-listform.component';
 
 const appRoutes: Routes = [
     { path: '', component: HomeComponent },
     { path: 'ranklist', component: RanklistComponent },
     { path: 'bca-ranklist', component: BcaRanklistComponent },
+    { path: 'bba-ranklist', component: BbaRanklistComponent },
     { path: 'student', component: StudentComponent },
     { path: 'student/:enroll', component: ProfileComponent }
 ];
@@ -47,13 +52,17 @@ const appRoutes: Routes = [
         BcaRanklistComponent,
         BcaListformComponent,
         ModalComponent,
-        TableComponent
+        TableComponent,
+        BbaRanklistComponent,
+        BbaListformComponent
     ],
     imports: [
         BrowserModule,
         FormsModule,
         HttpClientModule,
         NgxSpinnerModule,
+        NgxChartsModule,
+        BrowserAnimationsModule,
         LottieAnimationViewModule.forRoot(),
         RouterModule.forRoot(appRoutes),
         AdsenseModule.forRoot({

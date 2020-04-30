@@ -56,7 +56,7 @@ So, to handle this painful but logical task I wrote a parser. Let's call it Jimm
 <hr>
 
 ## Contributions
-If there's a feature you'd want in this app or if there's something you might not like, and would want changed, feel free to raise an issue or comment on a previous one. Questions, Suggestions, Ideas, Complaints or even even if it is some random banter, you'd like to discuss. Reach me out. 😄
+If there's a feature you'd want in this app or if there's something you might not like, and would want changed, feel free to raise an issue or comment on a previous one. Questions, Suggestions, Ideas, Complaints or even if it is some random banter, you'd like to discuss. Reach me out. 😄
 
 ## History
 Before starting with this application I created an [MSIT Ranklist web-app for Fall'18 results](http://msitranklist.surge.sh/), which went exceptionally viral in MSIT and received more than 500 hits within the first two hours of launch. It has received **12,000+ hits** uptil now, which essentially inspired me create one for entire IP University. See the story of how I ended up making that application [here](https://github.com/ankushgarg1998/msit-ranklist).

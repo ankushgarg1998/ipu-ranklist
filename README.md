@@ -1,4 +1,4 @@
-# ipu-ranklist v1.6
+# ipu-ranklist v2.0
 
 ![Website ipuraklist.surge.sh](https://img.shields.io/website-up-down-green-red/https/ipuranklist.surge.sh.svg)
 ![start with why](https://img.shields.io/badge/start%20with-why%3F-brightgreen.svg?style=flat)
@@ -23,7 +23,7 @@ So this is a minimalist result website I'm making for our University students, i
   - **College** *(Ex: MSIT, MAIT, BVCOE...)*, 
   - **Shift** *(Ex: Morning, Evening, Both)*, 
   - **Batch** *(Ex: 2016-20, 2017-21...)*, 
-  - **Branch** *(Ex: CSE, IT, ECE, EEE, EE, MAE, ME, MET, TE, PE...)* and
+  - **Course** *(Ex: BTech, BCA, BBA), and
   - **Semester** *(Ex: Sem1, Sem2, Sem3...)*
 - Subject-wise marks when clicked on any name in the ranklist.
 - A search-box to find a Student/Enrollment Number in the displayed ranklist.
@@ -36,7 +36,6 @@ So this is a minimalist result website I'm making for our University students, i
 ## Planned Features
 - An overall section for institutes, that shows a ranklist which includes students from all the colleges of a particular branch.
 - Ranks in the profile section.
-- Integration of BCA and BBA courses.
 
 <hr>
 

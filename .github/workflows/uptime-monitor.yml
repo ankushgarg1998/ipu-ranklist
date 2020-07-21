@@ -1,0 +1,26 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Uptime Monitor
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  schedule:
+    - cron: '*/60 * * * *'
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  ping_site:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+
+    # Runs a single command using the runners shell
+    - name: Ping Site
+      uses: srt32/uptime@v0.2
+      with:
+        url-to-hit: 'https://ipuranklist.com'
+        expected-status: '200'

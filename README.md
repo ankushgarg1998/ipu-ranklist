@@ -2,6 +2,7 @@
 
 ![Website ipuraklist.surge.sh](https://img.shields.io/website-up-down-green-red/https/ipuranklist.surge.sh.svg)
 ![start with why](https://img.shields.io/badge/start%20with-why%3F-brightgreen.svg?style=flat)
+![Uptime Monitor](https://github.com/ankushgarg1998/ipu-ranklist/workflows/Uptime%20Monitor/badge.svg)
 
 Please visit the deployed application [here](http://ipuranklist.surge.sh/).
 

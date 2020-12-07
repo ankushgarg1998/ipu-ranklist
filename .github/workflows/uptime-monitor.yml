@@ -22,5 +22,5 @@ jobs:
     - name: Ping Site
       uses: srt32/uptime@v0.2
       with:
-        url-to-hit: 'https://ipuranklist.com'
+        url-to-hit: 'https://ipuranklist.com/api/health'
         expected-statuses: '200'

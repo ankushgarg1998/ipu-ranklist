@@ -23,8 +23,8 @@ So this is a minimalist result website I'm making for our University students, i
 - Ranklists of all Engineering Colleges in IP University, that are displayed on selection of
   - **College** *(Ex: MSIT, MAIT, BVCOE...)*, 
   - **Shift** *(Ex: Morning, Evening, Both)*, 
-  - **Batch** *(Ex: 2016-20, 2017-21...)*, 
-  - **Course** *(Ex: BTech, BCA, BBA), and
+  - **Batch** *(Ex: 2015, 2016, 2017...)*, 
+  - **Course** *(Ex: BTech, USIT's BTECH, BCA, BBA, BCOM), and
   - **Semester** *(Ex: Sem1, Sem2, Sem3...)*
 - Subject-wise marks when clicked on any name in the ranklist.
 - A search-box to find a Student/Enrollment Number in the displayed ranklist.
